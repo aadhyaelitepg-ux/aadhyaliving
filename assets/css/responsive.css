@@ -1,0 +1,85 @@
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .innerBanner .carousel-caption{width:60%; left: 0px;     top: 12%;}
+
+  .innerBanner h1{font-size: 30px;}
+  .innerBanner h3{font-size: 20px; font-size: 20px;}
+  .nearbyPlacesWrapp .col-sm-6{max-width:100% !important; flex: 0 0 100%;}
+
+  .nearbyPlacesWrapp ul li{width:45%;}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .main-banner-area::after{display:none;}
+  .innerBanner .main-banner-area::after{display:block;}
+  .screenshots-area.ptb-100{    padding-top: 125px;}
+}
+
+
+@media only screen and (max-width: 991px){
+  .nearbyPlacesWrapp ul li{width:100%;margin-left: 0px;    margin-right: 0px;}
+  .main-banner-area::after{display:none;}
+  .innerBanner.main-banner-area::after{display:block;}
+  .innerBanner .carousel{    width: 98%;}
+  .innerBanner .carousel-caption{width:60%; left: 0px;     top: 12%;}
+  .innerBanner .bannerPosition{padding-top: 40px;}
+  .innerBanner h1{font-size:26px;}
+  .innerBanner h3{font-size:18px; line-height: 27px;}
+  .pakap-responsive-nav .logo{     margin-top: -4px;   width: 141px;}
+  .navbar-area{  padding-bottom: 10px;}
+  .navbar-area.is-sticky{position: relative;}
+  .pakap-responsive-nav .others-option {top: 8px }
+  .pakap-responsive-nav .mean-container a.meanmenu-reveal{top: 8px;}
+
+  .homeBanner.main-banner-area{padding-top:91px;}
+  .homeBanner .main-banner-image{left: 0px; position: inherit;    margin-top: 33px;     top: 0%;}
+   .homeBanner .main-banner-image img{float: none; margin-right: 0px; width:100%;}
+   .homeBanner .main-banner-content{ text-align: center;   width: 100%;}
+   .homeBanner .main-banner-content h1{font-size: 31px;}
+   .homeBanner .main-banner-content h3{font-size: 21px;}
+   .homeBanner .bannerPosition {padding-top: 0px;}
+   .homeBanner .banner-shape2{left: auto; right: 10%;}
+   .homeBanner .default-btn{display:none;}
+
+   .nearbyPlacesWrapp .col-sm-6{max-width:100% !important; flex: 0 0 100%;}
+}
+
+@media only screen and (max-width:767px){
+  .navbar-area{border-bottom:none;}
+  .qInnerBlock.displayFlex{display:block;}
+  .qInnerBlock.displayFlex .img-fluid{    margin: auto;margin-bottom: 20px;  display: block;}
+  .qInnerBlock.displayFlex p{text-align: center;}
+  .innerBanner .bannerPosition{padding-top:0px;}
+  .main-banner-area { padding-top: 81px !important;}
+  .innerBanner .carousel-caption.d-none{display:block !important;}
+  .innerBanner .carousel-caption.d-none h3{display:none !important;}
+    .innerBanner.innerTopMargin{position: relative;
+    margin-top: 7%;
+    z-index: 1;}
+    .innerBanner  .main-banner-area::after{bottom:-5px;}
+    .innerBanner .main-banner-area {
+      height: 404px;}
+      .firstHeading .title_tag{font-size: 22px;}
+      .firstHeading h3 {font-size: 15px;}
+      .portfolio-section .section-title{    margin-bottom: 0px;}
+      .service_content ul li{    width:97%;}
+      .amenities-bg{padding: 30px 20px 30px 20px;}
+
+      .screenshots-area{position: relative;  margin-top: 0px;}
+
+      .main-banner-area{    padding-top: 106px !important;}
+}
+
+@media only screen and (max-width:575px){
+  .innerBanner h1{font-size: 16px;}
+  .innerBanner .default-btn {margin-top: 6px;}
+  .innerBanner .carousel-caption { width: 86%; top: 12%; text-align: left; left: 4%;}
+  .innerBanner .carousel-item img{height: 227px;}
+  .innerBanner .main-banner-area{    height: 340px;}
+
+
+  .nonStickyLogo {width: 100px;}
+  .main-banner-area {
+    padding-top: 78px !important;
+}
+}
+
