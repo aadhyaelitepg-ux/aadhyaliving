@@ -1,112 +1,47 @@
-(function($){
-	"use strict";
+// Aadhya Living — site JS (no dependencies)
+(function () {
+  // mobile menu
+  var burger = document.querySelector(".hamburger");
+  var menu = document.querySelector(".mobile-menu");
+  if (burger && menu) {
+    burger.addEventListener("click", function () {
+      menu.classList.toggle("open");
+      burger.setAttribute("aria-expanded", menu.classList.contains("open"));
+    });
+  }
 
-	// Mean Menu
-	$('.mean-menu').meanmenu({
-		meanScreenWidth: "991"
-	});
+  // property filter (home page)
+  var filters = document.querySelectorAll(".filter-row button");
+  filters.forEach(function (b) {
+    b.addEventListener("click", function () {
+      filters.forEach(function (x) { x.classList.remove("on"); });
+      b.classList.add("on");
+      var f = b.dataset.filter;
+      document.querySelectorAll(".prop-card").forEach(function (c) {
+        c.classList.toggle("hide", f !== "all" && c.dataset.type !== f);
+      });
+      document.querySelectorAll(".area-group").forEach(function (g) {
+        var visible = g.querySelectorAll(".prop-card:not(.hide)").length;
+        g.classList.toggle("hide", visible === 0);
+      });
+    });
+  });
 
-	// Header Sticky
-	$(window).on('scroll',function() {
-		if ($(this).scrollTop() > 120){  
-			$('.navbar-area').addClass("is-sticky");
-		}
-		else{
-			$('.navbar-area').removeClass("is-sticky");
-		}
-	});
-
-
-
-	// locations-slides
-	$('.locations-slides').owlCarousel({
-		nav: true,
-		loop: false,
-		margin: 25,
-		dots: true,
-		autoplay: true,
-		autoplayHoverPause: true,
-		navText: [
-			"<i class='ri-arrow-left-line'></i>",
-			"<i class='ri-arrow-right-line'></i>",
-		],
-		responsive: {
-			0: {
-				items: 1
-			},
-			576: {
-				items: 2
-			},
-			768: {
-				items: 3
-			},
-			992: {
-				items: 3
-			},
-			1200: {
-				items: 3
-			}
-		}
-	});
-
-	// Feedback Slides
-	$('.feedback-slides').owlCarousel({
-		nav: true,
-		loop: false,
-		margin: 25,
-		dots: false,
-		autoplay: true,
-		autoplayHoverPause: true,
-		// nav: false,
-		// loop: false,
-		// margin: 25,
-		// dots: true,
-		// center: true,
-		// autoplay: true,
-		// autoplayHoverPause: true,
-		navText: [
-			// "<i class='ri-arrow-left-s-line'></i>",
-			// "<i class='ri-arrow-right-s-line'></i>",
-			"<i class='ri-arrow-left-line'></i>",
-			"<i class='ri-arrow-right-line'></i>",
-		],
-		responsive: {
-			0: {
-				items: 1
-			},
-			576: {
-				items: 1
-			},
-			768: {
-				items: 2
-			},
-			992: {
-				items: 3
-			},
-			1200: {
-				items: 3
-			}
-		}
-	});
-
-
-	// AOS
-	AOS.init();
-
-	// Go to Top
-	$(function(){
-		// Scroll Event
-		$(window).on('scroll', function(){
-			var scrolled = $(window).scrollTop();
-			if (scrolled > 600) $('.go-top').addClass('active');
-			if (scrolled < 600) $('.go-top').removeClass('active');
-		});  
-		// Click Event
-		$('.go-top').on('click', function() {
-			$("html, body").animate({ scrollTop: "0" },  500);
-		});
-	});
-
-	
-
-}(jQuery));
+  // enquiry form -> opens WhatsApp with a pre-filled message (no backend needed)
+  var form = document.getElementById("enquiry-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = new FormData(form);
+      var wa = form.dataset.wa || "918345888999";
+      var msg =
+        "Hi Aadhya Living! I'm looking for a PG.\n" +
+        "Name: " + (d.get("name") || "-") + "\n" +
+        "Looking for: " + (d.get("type") || "-") + "\n" +
+        "Preferred area: " + (d.get("area") || "-") + "\n" +
+        "Move-in: " + (d.get("movein") || "Flexible") + "\n" +
+        "Please share availability and pricing options.";
+      window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(msg), "_blank");
+    });
+  }
+})();
