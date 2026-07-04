@@ -5,6 +5,8 @@ Edit PROPERTIES / copy below, run `python3 build.py` — all pages regenerate.
 import html, os
 
 SITE = "https://aadhyaliving.in"
+VER = "20260704d"
+MAPS_ALL = "https://www.google.com/maps/search/Aadhya+Living+PG+Hyderabad"  # bump this string whenever you change CSS/JS to force browsers to reload
 PH_MEN, PH_WOMEN, PH_COLIVE = "919888877789", "918345888999", "919888878899"
 
 def utm(slug):  # tag for the Google Business Profile website button
@@ -129,7 +131,7 @@ def head(title, desc, path, extra=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v={VER}">
 {extra}
 </head>
 <body class="has-bar">
@@ -178,7 +180,7 @@ def footer():
  <div class="container foot-note"><span>© 2026 Aadhya Living, Hyderabad. All rights reserved.</span><span>Women's · Men's · Co-Living PGs</span></div>
 </footer>
 <a class="wa-float" href="https://wa.me/{PH_WOMEN}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG." aria-label="Chat on WhatsApp">{ic('chat','')}</a>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v={VER}"></script>
 </body></html>"""
 
 def action_bar(call, wa, maps):
@@ -362,7 +364,7 @@ def build_home():
   <div class="faq">{faq_html}</div>
  </div>
 </section>
-{action_bar(PH_WOMEN, PH_WOMEN, SITE)}
+{action_bar(PH_WOMEN, PH_WOMEN, MAPS_ALL)}
 {footer()}"""
     title = "Aadhya Living | Women's, Men's & Co-Living PG in Gachibowli, Kondapur, Hitec City & Khajaguda, Hyderabad"
     desc = "11 professionally managed PGs across Hyderabad's IT corridor. All meals, CCTV security, housekeeping included — rooms for every budget. WhatsApp us to book a visit."
@@ -465,7 +467,7 @@ def simple(title, desc, path, hero_h1, hero_p, inner):
     body = f"""{nav(path)}
 <div class="page-hero"><div class="container"><h1>{hero_h1}</h1><p>{hero_p}</p></div></div>
 {inner}
-{action_bar(PH_WOMEN, PH_WOMEN, SITE)}
+{action_bar(PH_WOMEN, PH_WOMEN, MAPS_ALL)}
 {footer()}"""
     return head(title, desc, path) + body
 
@@ -505,7 +507,7 @@ def build_food():
  <span class="eyebrow">Cooked in-house, every day</span>
  <h2>A sample week at the Aadhya kitchen</h2>
  <p class="lead mt-2">All three meals are included at every property. Menus vary a little by location and season — this is a representative week. Special meals on Sundays and festivals.</p>
- <table class="menu-table"><thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead><tbody>{rows}</tbody></table>
+ <div class="menu-scroll"><table class="menu-table"><thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead><tbody>{rows}</tbody></table></div>
  <p class="mt-3" style="color:var(--ink-soft)">Dietary preference or allergy? Tell us before you move in — we accommodate where we can.</p>
  <a class="btn btn-wa mt-2" href="https://wa.me/{PH_WOMEN}?text=Hi!%20Question%20about%20the%20food%20menu%20—">{ic("chat")} Ask about the menu</a>
 </div></section>"""
