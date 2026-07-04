@@ -7,6 +7,9 @@ import html, os
 SITE = "https://aadhyaliving.in"
 PH_MEN, PH_WOMEN, PH_COLIVE = "919888877789", "918345888999", "919888878899"
 
+def utm(slug):  # tag for the Google Business Profile website button
+    return f"?utm_source=gbp&utm_medium=organic&utm_campaign=listing&utm_content={slug}"
+
 def disp(p): return f"+91 {p[2:7]} {p[7:]}"
 
 LANDMARKS = {
@@ -21,49 +24,49 @@ LANDMARKS = {
 PROPERTIES = [
  dict(slug="mens-pg-gachibowli", name="Aadhya Men's PG – Gachibowli", short="Men's PG · Gachibowli",
       type="men", area="Gachibowli", lat=17.4376242, lng=78.3668396,
-      maps="https://maps.app.goo.gl/veVdYQGvjMnqBzYY6", near=LANDMARKS["gachibowli"],
+      maps="https://maps.app.goo.gl/veVdYQGvjMnqBzYY6", addr='5/6, 2-48, Old Mumbai Hwy, Telecom Nagar Extn, Gachibowli, Hyderabad, Telangana 500032', pin='500032', kw=['mens pg in gachibowli', 'boys hostel in gachibowli', 'pg near me', 'mens pg near financial district'], near=LANDMARKS["gachibowli"],
       blurb="A professionally managed men's PG in the heart of Gachibowli — minutes from Wipro Circle, DLF Cybercity and the Financial District shuttle routes. Ideal for working professionals who want a fuss-free, fully serviced stay close to office."),
  dict(slug="mens-pg-2-gachibowli", name="Aadhya Men's PG 2 – Gachibowli", short="Men's PG · Gachibowli",
       type="men", area="Gachibowli", lat=17.4408067, lng=78.3652679,
-      maps="https://maps.app.goo.gl/uBhdcUQ2WvVe2PJ96", near=LANDMARKS["gachibowli"],
+      maps="https://maps.app.goo.gl/uBhdcUQ2WvVe2PJ96", addr='Plot 77, Yash Suites, Hussain Rd, P Janardhan Reddy Nagar, Gachibowli, Hyderabad, Telangana 500032', pin='500032', kw=['mens pg in gachibowli', 'boys pg near me', 'pg for men gachibowli'], near=LANDMARKS["gachibowli"],
       blurb="Our second men's property in Gachibowli, on the northern side towards Kondapur — the same Aadhya food, housekeeping and management standards, with quick access to both Gachibowli and Hitec City offices."),
  dict(slug="mens-pg-janardhan-hills", name="Aadhya Men's PG – Janardhan Hills, Gachibowli", short="Men's PG · Janardhan Hills",
       type="men", area="Gachibowli", lat=17.4371875, lng=78.3679375,
-      maps="https://maps.app.goo.gl/YSqqRCR5yq37BD6L8", near=LANDMARKS["gachibowli"],
+      maps="https://maps.app.goo.gl/YSqqRCR5yq37BD6L8", addr='P Janardhan Reddy Nagar, Gachibowli, Hyderabad, Telangana 500081', pin='500081', kw=['mens pg in gachibowli', 'boys hostel janardhan hills', 'pg near me'], near=LANDMARKS["gachibowli"],
       blurb="Tucked into the quiet Janardhan Hills pocket of Gachibowli, this men's PG gives you a calmer street with the same unbeatable commute — Wipro Circle and DLF are minutes away."),
  dict(slug="womens-pg-gachibowli", name="Aadhya Women's PG – Gachibowli", short="Women's PG · Gachibowli",
       type="women", area="Gachibowli", lat=17.4385886, lng=78.366434,
-      maps="https://maps.app.goo.gl/moR1MhmBwbwqUBLR9", near=LANDMARKS["gachibowli"],
+      maps="https://maps.app.goo.gl/moR1MhmBwbwqUBLR9", addr='Babukhan Lane, P Janardhan Reddy Nagar, Gachibowli, Hyderabad, Telangana 500032', pin='500032', kw=['womens pg in gachibowli', 'ladies pg in gachibowli', 'girls hostel in gachibowli', 'ladies pg near me'], near=LANDMARKS["gachibowli"],
       blurb="A secure, well-run women's PG in central Gachibowli with CCTV coverage, controlled entry and an on-call warden — walking distance to major IT campuses and daily-needs markets."),
  dict(slug="womens-pg-telecom-nagar", name="Aadhya Women's PG – Telecom Nagar, Gachibowli", short="Women's PG · Telecom Nagar",
       type="women", area="Gachibowli", lat=17.4325156, lng=78.3678256,
-      maps="https://maps.app.goo.gl/qnhbe2NzTHj5EWeN7", near=LANDMARKS["telecom"],
+      maps="https://maps.app.goo.gl/qnhbe2NzTHj5EWeN7", addr='Telecom Nagar Extn, Gachibowli, Hyderabad, Telangana 500032', pin='500032', kw=['womens pg in gachibowli', 'ladies pg near me', 'girls hostel telecom nagar'], near=LANDMARKS["telecom"],
       blurb="Located in Telecom Nagar, one of Gachibowli's most convenient residential pockets — a safe, homely option for women working across Gachibowli, DLF and the Financial District."),
  dict(slug="womens-pg-kondapur", name="Aadhya Women's PG – Kondapur", short="Women's PG · Kondapur",
       type="women", area="Kondapur", lat=17.4621736, lng=78.3657885,
-      maps="https://maps.app.goo.gl/ZgdttPsAmonAMZqo7", near=LANDMARKS["kondapur"],
+      maps="https://maps.app.goo.gl/ZgdttPsAmonAMZqo7", addr='210, opposite MITRAS NEST, Prashanth Nagar Colony, Kondapur, Hyderabad, Telangana 500084', pin='500084', kw=['womens pg in kondapur', 'ladies pg in kondapur', 'girls hostel in kondapur', 'ladies pg near me'], near=LANDMARKS["kondapur"],
       blurb="A women's PG in Kondapur with easy reach to both Hitec City and Gachibowli — close to Kothaguda Junction, Sarath City Capital Mall and everyday conveniences."),
  dict(slug="coliving-pg-hitec-city", name="Aadhya Elite Co-Living PG – Hitec City, Madhapur", short="Co-Living · Hitec City",
       type="colive", area="Hitec City · Madhapur", lat=17.4636263, lng=78.3767311,
-      maps="https://maps.app.goo.gl/4gXcf8VWvJgtYDVm6", near=LANDMARKS["hitec"],
+      maps="https://maps.app.goo.gl/4gXcf8VWvJgtYDVm6", addr='11,12, Plot no:10, Hitex Road, beside Dynamic Ryderz, Vinayaka Nagar, Khanammet, Hyderabad, Telangana 500084', pin='500084', kw=['co-living pg in khanammet', 'best co-living pg vinayaka nagar', 'ladies pg in khanammet', 'mens pg in khanammet'], near=LANDMARKS["hitec"],
       blurb="Aadhya Elite is our premium co-living property near Hitex, Madhapur — separate, secure floors in a managed community, minutes from Mindspace, Cyber Towers and Durgam Cheruvu Metro."),
  dict(slug="womens-pg-khajaguda", name="Aadhya Women's PG – Khajaguda", short="Women's PG · Khajaguda",
       type="women", area="Khajaguda", lat=17.4182977, lng=78.3799983,
-      maps="https://maps.app.goo.gl/B8fKEMgd23xzFKoL8", near=LANDMARKS["khajaguda"],
+      maps="https://maps.app.goo.gl/B8fKEMgd23xzFKoL8", addr='66/2, Prashant Hills, Manikonda, Hyderabad, Telangana 500033', pin='500033', kw=['ladies pg in khajaguda', 'girls hostel in khajaguda', 'womens pg in khajaguda', 'ladies pg near me', 'womens pg near me'], near=LANDMARKS["khajaguda"],
       photos=True, sister="womens-pg-prashant-hills",
       blurb="Our flagship women's property in Khajaguda — a purpose-run building minutes from the Financial District and Nanakramguda campuses, with full CCTV coverage, nutritious daily meals and housekeeping."),
  dict(slug="womens-pg-prashant-hills", name="Aadhya Women's PG – Prashant Hills, Khajaguda", short="Women's PG · Prashant Hills",
       type="women", area="Khajaguda", lat=17.4181553, lng=78.3799093,
-      maps="https://maps.app.goo.gl/cyfsKpoG5f6v5D2h8", near=LANDMARKS["khajaguda"],
+      maps="https://maps.app.goo.gl/cyfsKpoG5f6v5D2h8", addr='Prashant Hills, Manikonda, Hyderabad, Telangana 500033', pin='500033', kw=['ladies pg in khajaguda', 'womens pg in prashant hills', 'girls hostel near financial district'], near=LANDMARKS["khajaguda"],
       sister="womens-pg-khajaguda",
       blurb="Directly opposite our flagship Khajaguda women's building, the Prashant Hills property offers the same management, food and safety standards — double the capacity in one of Hyderabad's fastest-growing neighbourhoods."),
  dict(slug="mens-pg-khajaguda", name="Aadhya Men's PG – Khajaguda", short="Men's PG · Khajaguda",
       type="men", area="Khajaguda", lat=17.419183, lng=78.379562,
-      maps="https://maps.app.goo.gl/U742wPPCC1jnH7Kh9", near=LANDMARKS["khajaguda"],
+      maps="https://maps.app.goo.gl/U742wPPCC1jnH7Kh9", addr='Road no 4, Plot no 284, Prashant Hills, Gachibowli, Rai Durg, Hyderabad, Telangana 500032', pin='500032', kw=['mens pg in khajaguda', 'boys hostel in khajaguda', 'pg near financial district'], near=LANDMARKS["khajaguda"],
       blurb="A men's PG in Khajaguda built for Financial District commuters — minutes from Wells Fargo, ICICI and the Nanakramguda tech corridor, with all meals and housekeeping included."),
  dict(slug="ss-grand-womens-pg-gachibowli", name="SS Grand Women's PG – by Aadhya Living", short="Women's PG · Gachibowli East",
       type="women", area="Gachibowli", lat=17.4428348, lng=78.385631,
-      maps="https://maps.app.goo.gl/gWBhoxZ53h3TGMgdA", near=LANDMARKS["ssgrand"],
+      maps="https://maps.app.goo.gl/gWBhoxZ53h3TGMgdA", addr='Gachibowli, Hyderabad, Telangana 500032', pin='500032', kw=['womens pg in gachibowli', 'ladies pg near me', 'girls hostel gachibowli'], near=LANDMARKS["ssgrand"],
       blurb="SS Grand is a long-running women's hostel now part of the Aadhya Living family — located between Gachibowli and Hitec City with quick access to Kothaguda Junction and Whitefields offices."),
 ]
 
@@ -342,7 +345,7 @@ def build_property(p):
 "name":"{p['name']}","url":"{SITE}/{p['slug']}.html",
 "image":"{SITE}/assets/img/khajaguda/hero-building.jpg",
 "telephone":"+{phone}",
-"address":{{"@type":"PostalAddress","addressLocality":"{p['area'].split(' ·')[0]}","addressRegion":"Telangana","addressCountry":"IN"}},
+"address":{{"@type":"PostalAddress","streetAddress":"{html.escape(p.get('addr',''))}","addressLocality":"{p['area'].split(' ·')[0]}","addressRegion":"Telangana","postalCode":"{p.get('pin','')}","addressCountry":"IN"}},
 "geo":{{"@type":"GeoCoordinates","latitude":{p['lat']},"longitude":{p['lng']}}},
 "hasMap":"{p['maps']}",
 "parentOrganization":{{"@type":"Organization","name":"Aadhya Living","url":"{SITE}"}},
@@ -365,6 +368,8 @@ def build_property(p):
 
 <section><div class="container">
  <p class="lead">{p['blurb']}</p>
+ <p style="color:var(--ink-faint);font-size:.92rem;margin-top:12px">📍 {html.escape(p.get('addr',''))}</p>
+ <div class="sister" style="background:var(--teal-tint);border-color:#bfe3e2">🚶 <strong>Visitors welcome — come see a room today.</strong> Most families decide after a quick visit. Walk in, or WhatsApp us and we'll keep a room ready to show you.</div>
  {sister}
  <h2 class="mt-3" style="margin-top:44px">Photos</h2>
  <div class="gallery mt-2">{gal}</div>
@@ -400,8 +405,10 @@ def build_property(p):
 {others_sec}
 {action_bar(phone, wa, p['maps'])}
 {footer()}"""
-    title = f"{p['name']} | {label} in {p['area'].split(' ·')[0]}, Hyderabad — Aadhya Living"
-    desc = f"{label} in {p['area']} near {', '.join(p['near'][:3])}. All meals, Wi-Fi, housekeeping & 24×7 CCTV included. Call {disp(phone)} or WhatsApp to book a visit."
+    kw = p.get('kw', [])
+    primary = kw[0] if kw else f"{label.lower()} in {p['area']}"
+    title = f"{primary.title()} | {p['name']} — Aadhya Living Hyderabad"
+    desc = f"{p['name']}: {primary} with all meals, Wi-Fi, housekeeping & 24×7 CCTV included. Near {', '.join(p['near'][:3])}. Call {disp(phone)} or WhatsApp to visit today."
     return head(title, desc, f"{p['slug']}.html", ld) + body
 
 # ---------------------------------------------------------------- simple pages
