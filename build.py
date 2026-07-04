@@ -10,6 +10,34 @@ PH_MEN, PH_WOMEN, PH_COLIVE = "919888877789", "918345888999", "919888878899"
 def utm(slug):  # tag for the Google Business Profile website button
     return f"?utm_source=gbp&utm_medium=organic&utm_campaign=listing&utm_content={slug}"
 
+# ---- inline line-icon set (stroke, currentColor) — replaces all emoji ----
+_P = {
+ "peak":'<path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/>',
+ "pin":'<path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/>',
+ "phone":'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>',
+ "chat":'<path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/>',
+ "arrow":'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ "meal":'<path d="M4 3v7a3 3 0 0 0 6 0V3M7 3v18M17 3c-2 0-3 2-3 5s1 4 3 4 3-1 3-4-1-5-3-5ZM17 12v9"/>',
+ "wifi":'<path d="M5 12.5a10 10 0 0 1 14 0M8 16a5 5 0 0 1 8 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/>',
+ "broom":'<path d="M19 5 12 12M11 9l4 4-5 5H5v-2l1-1M6 18l-2 3"/>',
+ "cctv":'<path d="M3 8l14-3 1 4-14 3zM4 12l2 5M17 9l3 1v4h-3M9 20h4"/>',
+ "lock":'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+ "drop":'<path d="M12 3s6 6.5 6 10.5a6 6 0 0 1-12 0C6 9.5 12 3 12 3Z"/>',
+ "bolt":'<path d="M13 3 5 13h5l-1 8 8-11h-5z"/>',
+ "washer":'<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6h.01M11 6h.01"/>',
+ "fridge":'<rect x="6" y="3" width="12" height="18" rx="2"/><path d="M6 10h12M10 6v2M10 13v3"/>',
+ "bed":'<path d="M3 8v10M3 12h18v6M21 18v-4a3 3 0 0 0-3-3h-7v4M7 11a2 2 0 1 0 0-.01"/>',
+ "parking":'<rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/>',
+ "person":'<circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/>',
+ "shield":'<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/>',
+ "check":'<path d="M20 6 9 17l-5-5"/>',
+ "camera":'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/>',
+ "insta":'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/>',
+ "home":'<path d="M4 11 12 4l8 7M6 10v9h12v-9"/>',
+}
+def ic(name, cls="icon"):
+    return f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true">{_P[name]}</svg>'
+
 def disp(p): return f"+91 {p[2:7]} {p[7:]}"
 
 LANDMARKS = {
@@ -70,10 +98,10 @@ PROPERTIES = [
       blurb="SS Grand is a long-running women's hostel now part of the Aadhya Living family — located between Gachibowli and Hitec City with quick access to Kothaguda Junction and Whitefields offices."),
 ]
 
-AMEN = [("🍛","All meals included"),("📶","High-speed Wi-Fi"),("🧹","Daily housekeeping"),
-        ("📹","24×7 CCTV"),("🔐","Secure entry"),("🚿","Hot water"),
-        ("🔋","Power backup"),("🧺","Washing machine"),("🧊","Refrigerator"),
-        ("🛏️","Furnished rooms"),("🅿️","Two-wheeler parking"),("🧑‍💼","On-site caretaker")]
+AMEN = [("meal","All meals included"),("wifi","High-speed Wi-Fi"),("broom","Daily housekeeping"),
+        ("cctv","24×7 CCTV"),("lock","Secure entry"),("drop","Hot water"),
+        ("bolt","Power backup"),("washer","Washing machine"),("fridge","Refrigerator"),
+        ("bed","Furnished rooms"),("parking","Two-wheeler parking"),("person","On-site caretaker")]
 
 TYPE_META = {"men":("Men's PG","badge-m",PH_MEN),
              "women":("Women's PG","badge-w",PH_WOMEN),
@@ -100,7 +128,7 @@ def head(title, desc, path, extra=""):
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 {extra}
 </head>
@@ -116,11 +144,11 @@ def nav(active=""):
  <div class="container nav">
   <a class="logo" href="index.html" aria-label="Aadhya Living home"><img src="assets/img/al-logo-color.svg" alt="Aadhya Living"></a>
   <ul class="nav-links">{dl}</ul>
-  <a class="btn btn-amber btn-sm nav-cta" href="tel:+{PH_WOMEN}">📞 {disp(PH_WOMEN)}</a>
+  <a class="btn btn-amber btn-sm nav-cta" href="tel:+{PH_WOMEN}">{ic('phone')} {disp(PH_WOMEN)}</a>
   <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span></button>
  </div>
  <nav class="mobile-menu container">{ml}
-  <a class="btn btn-amber menu-call" href="tel:+{PH_WOMEN}" style="display:inline-flex">📞 Call us</a>
+  <a class="btn btn-amber menu-call" href="tel:+{PH_WOMEN}" style="display:inline-flex">{ic('phone')} Call us</a>
  </nav>
 </header>
 """
@@ -133,8 +161,8 @@ def footer():
   <div class="foot-logo"><img src="assets/img/al-logo.svg" alt="Aadhya Living">
    <p style="font-size:.92rem">Professionally managed PGs & co-living across Hyderabad's IT corridor — Gachibowli, Kondapur, Hitec City & Khajaguda. A home for every budget.</p>
    <div class="socials">
-    <a href="https://www.instagram.com/" aria-label="Instagram">📷</a>
-    <a href="https://wa.me/{PH_WOMEN}" aria-label="WhatsApp">💬</a>
+    <a href="https://www.instagram.com/" aria-label="Instagram">{ic('insta','')}</a>
+    <a href="https://wa.me/{PH_WOMEN}" aria-label="WhatsApp">{ic('chat','')}</a>
    </div>
   </div>
   <div><h4>Locations</h4>{loc}</div>
@@ -149,15 +177,15 @@ def footer():
  </div>
  <div class="container foot-note"><span>© 2026 Aadhya Living, Hyderabad. All rights reserved.</span><span>Women's · Men's · Co-Living PGs</span></div>
 </footer>
-<a class="wa-float" href="https://wa.me/{PH_WOMEN}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG." aria-label="Chat on WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/{PH_WOMEN}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG." aria-label="Chat on WhatsApp">{ic('chat','')}</a>
 <script src="assets/js/main.js"></script>
 </body></html>"""
 
 def action_bar(call, wa, maps):
     return f"""<div class="action-bar">
- <a class="ab-call" href="tel:+{call}"><span>📞</span>Call</a>
- <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG."><span>💬</span>WhatsApp</a>
- <a href="{maps}" target="_blank" rel="noopener"><span>🗺️</span>Directions</a>
+ <a class="ab-call" href="tel:+{call}">{ic('phone','')}Call</a>
+ <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat','')}WhatsApp</a>
+ <a class="ab-dir" href="{maps}" target="_blank" rel="noopener">{ic('pin','')}Directions</a>
 </div>"""
 
 def card(p):
@@ -165,14 +193,14 @@ def card(p):
     if p.get("photos"):
         media = f'<img src="{KJ[0]}-sm.webp" alt="{html.escape(p["name"])} building" loading="lazy" width="640" height="427">'
     else:
-        media = '<div class="soon">📸 Photos coming soon</div>'
+        media = f'<div class="soon">{ic("camera","")}Photos coming soon</div>'
     near = " · ".join(p["near"][:3])
     return f"""<article class="card prop-card" data-type="{p['type']}">
  <a class="card-media" href="{p['slug']}.html" aria-label="{html.escape(p['name'])}">{media}
   <span class="badge {badge}">{label}</span></a>
  <div class="card-body">
   <h3><a href="{p['slug']}.html" style="color:inherit">{html.escape(p['name'])}</a></h3>
-  <p class="card-near">Near {near}</p>
+  <p class="card-near">{ic('pin','')}Near {near}</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="{p['slug']}.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/{phone}?text=Hi!%20Enquiring%20about%20{p['name'].replace(' ','%20')}">WhatsApp</a>
@@ -192,8 +220,11 @@ def build_home():
             "Hitec City · Madhapur":"Mindspace, Cyber Towers, Hitex — premium co-living",
             "Khajaguda":"Financial District's neighbourhood — Wells Fargo, ICICI, Nanakramguda"}
     for a in order:
-        cards = "".join(card(p) for p in areas.get(a, []))
-        area_html += f"""<div class="area-group"><div class="area-title">{a}</div>
+        plist = areas.get(a, [])
+        cards = "".join(card(p) for p in plist)
+        n = len(plist)
+        area_html += f"""<div class="area-group"><span class="area-marker">{ic('peak','')}</span>
+<div class="area-title">{a} <span class="stops">{n} {'stop' if n==1 else 'stops'}</span></div>
 <div class="area-sub">{subs[a]}</div><div class="prop-grid">{cards}</div></div>"""
 
     faqs = [
@@ -216,34 +247,52 @@ def build_home():
 </script>
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{faq_ld}]}}</script>"""
 
-    feats = [("🍛","Fresh food, daily","Breakfast, lunch and dinner cooked in-house — a weekly menu you'll actually look forward to."),
-             ("🛡️","Safety first","CCTV, controlled entry and on-site caretakers at every property. Parents, we built this for your peace of mind."),
-             ("🧹","Fully serviced","Housekeeping, laundry machines, hot water, Wi-Fi and power backup — all handled, always included."),
-             ("💰","Every budget","From economical sharing to premium singles across 11 properties — there's an Aadhya home at your price.")]
-    feat_html = "".join(f'<div class="feat"><div class="ico">{i}</div><h3>{t}</h3><p>{d}</p></div>' for i,t,d in feats)
+    feats = [("meal","Fresh food, daily","Breakfast, lunch and dinner cooked in-house — a weekly menu you'll actually look forward to."),
+             ("shield","Safety first","CCTV, controlled entry and on-site caretakers at every property. Parents, we built this for your peace of mind."),
+             ("broom","Fully serviced","Housekeeping, laundry machines, hot water, Wi-Fi and power backup — all handled, always included."),
+             ("home","Every budget","From economical sharing to premium singles across 11 properties — there's an Aadhya home at your price.")]
+    feat_html = "".join(f'<div class="feat"><div class="ico">{ic(i,"")}</div><h3>{t}</h3><p>{d}</p></div>' for i,t,d in feats)
 
     revs = [("Stayed here for over a year — food is homely and the management actually responds. Felt like a second home.","Resident","Women's PG · Khajaguda"),
             ("Best part is the location. Five minutes to office, and everything is taken care of.","Resident","Men's PG · Gachibowli"),
             ("As a parent I visited before admission — the security and cleanliness convinced me immediately.","Parent of resident","Women's PG · Kondapur")]
     rev_html = "".join(f'<div class="rev"><div class="stars">★★★★★</div><p>“{t}”</p><div class="who">{w}</div><div class="where">{l}</div></div>' for t,w,l in revs)
 
+    # route-map hero: 4 neighbourhood "stations" with live property counts
+    stations = [("Gachibowli","Wipro · DLF · Amazon · ISB",6,"#locations"),
+                ("Kondapur","Hitec City · Sarath City Mall",1,"womens-pg-kondapur.html"),
+                ("Hitec City","Mindspace · Cyber Towers",1,"coliving-pg-hitec-city.html"),
+                ("Khajaguda","Financial District · Nanakramguda",3,"womens-pg-khajaguda.html")]
+    st_html = "".join(f"""<a class="station" href="{href}">
+     <span class="peak">{ic('peak','')}</span>
+     <span><span class="s-name">{nm}</span><span class="s-meta">{mt}</span></span>
+     <span class="s-count">{n} {'home' if n==1 else 'homes'}</span></a>""" for nm,mt,n,href in stations)
+
     body = f"""{nav('index.html')}
-<div class="hero">
- <div class="hero-media"><picture>
-  <source srcset="assets/img/khajaguda/hero-building.webp" type="image/webp">
-  <img src="assets/img/khajaguda/hero-building.jpg" alt="Aadhya Living PG building in Khajaguda, Hyderabad" fetchpriority="high"></picture></div>
- <div class="container hero-inner">
-  <span class="eyebrow" style="color:var(--amber)">Women's · Men's · Co-Living</span>
-  <h1>Your home in Hyderabad's tech corridor.</h1>
-  <p>11 professionally managed PGs across Gachibowli, Kondapur, Hitec City and Khajaguda — fresh food, real safety, and a room for every budget.</p>
-  <div class="hero-actions">
-   <a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">💬 WhatsApp us</a>
-   <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#locations">Explore locations</a>
+<section class="route-hero">
+ <div class="container route-wrap">
+  <div>
+   <span class="eyebrow">Women's · Men's · Co-Living</span>
+   <h1>A home on every stop of your <em>commute.</em></h1>
+   <p>11 professionally managed PGs strung along Hyderabad's IT corridor. Wherever you work, there's an Aadhya minutes away — with fresh food, real safety, and a room for every budget.</p>
+   <div class="hero-actions">
+    <a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat')} WhatsApp us</a>
+    <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="#locations">Explore the map {ic('arrow')}</a>
+   </div>
+   <div class="hero-metrics">
+    <div class="m"><b>11</b><span>Properties</span></div>
+    <div class="m"><b>4</b><span>Neighbourhoods</span></div>
+    <div class="m"><b>3</b><span>meals daily</span></div>
+    <div class="m"><b>24×7</b><span>CCTV secured</span></div>
+   </div>
   </div>
-  <div class="hero-chips"><span class="chip">11 properties</span><span class="chip">All meals included</span><span class="chip">24×7 CCTV</span><span class="chip">Minutes from major IT campuses</span></div>
+  <div class="route-map">
+   <div class="rm-head"><b>The Aadhya Line</b><span>HYD · IT CORRIDOR</span></div>
+   <div class="line"><div class="track"></div>{st_html}</div>
+   <div class="rm-foot">↑ tap a stop to see homes there</div>
+  </div>
  </div>
- <div class="hero-note">Our Khajaguda property — photographed, not stock.</div>
-</div>
+</section>
 
 <section id="locations">
  <div class="container">
@@ -273,7 +322,7 @@ def build_home():
   <div><h2>Every budget has a home here.</h2>
    <p>We don't publish one price because we don't have one product — economical sharing, comfortable doubles, premium singles. Tell us what you can spend; we'll show you what it gets.</p></div>
   <div class="btn-row">
-   <a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20My%20budget%20is%20____%20—%20what%20rooms%20do%20you%20have%3F">💬 Share your budget</a>
+   <a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20My%20budget%20is%20____%20—%20what%20rooms%20do%20you%20have%3F">{ic("chat")} Share your budget</a>
    <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="contact.html">Book a visit</a>
   </div>
  </div></div>
@@ -285,10 +334,10 @@ def build_home():
    <span class="eyebrow">For parents, especially</span>
    <h2>Safety isn't a feature. It's the foundation.</h2>
    <ul class="ticks">
-    <li>24×7 CCTV coverage in common areas and entrances</li>
-    <li>Controlled entry and visitor policy at every property</li>
-    <li>On-site caretakers and responsive management</li>
-    <li>Well-lit surroundings in established residential pockets</li>
+    <li>{ic("check","icon")}<span>24×7 CCTV coverage in common areas and entrances</span></li>
+    <li>{ic("check","icon")}<span>Controlled entry and visitor policy at every property</span></li>
+    <li>{ic("check","icon")}<span>On-site caretakers and responsive management</span></li>
+    <li>{ic("check","icon")}<span>Well-lit surroundings in established residential pockets</span></li>
    </ul>
    <a class="btn btn-blue mt-3" href="safety.html" style="margin-top:24px">How we keep residents safe</a>
   </div>
@@ -329,12 +378,12 @@ def build_property(p):
     else:
         gal = ('<div class="g-soon">📸 Real photos of this property<br>coming soon</div>'*3 +
                '<a href="womens-pg-khajaguda.html" class="g-soon" style="border-style:solid">See our Khajaguda flagship →</a>')
-    near = "".join(f"<li>{n}</li>" for n in p["near"])
-    amen = "".join(f'<div class="amen"><span>{i}</span>{t}</div>' for i,t in AMEN)
+    near = "".join(f"<li>{ic('pin','')}{n}</li>" for n in p["near"])
+    amen = "".join(f'<div class="amen">{ic(i)}{t}</div>' for i,t in AMEN)
     sister = ""
     if p.get("sister"):
         s = next(x for x in PROPERTIES if x["slug"]==p["sister"])
-        sister = f'<div class="sister">🏠 <strong>Sister property directly opposite:</strong> <a href="{s["slug"]}.html">{html.escape(s["name"])}</a> — same management, same standards, double the availability.</div>'
+        sister = f'<div class="sister">{ic("home")} <strong>Sister property directly opposite:</strong> <a href="{s["slug"]}.html">{html.escape(s["name"])}</a> — same management, same standards, double the availability.</div>'
     others = [x for x in PROPERTIES if x["slug"]!=p["slug"] and x["area"]==p["area"]][:3]
     others_html = "".join(card(x) for x in others)
     others_sec = f"""<section style="padding-top:0"><div class="container">
@@ -359,17 +408,17 @@ def build_property(p):
   <h1>{html.escape(p['name'])}</h1>
   <div class="meta"><span class="chip">{label}</span><span class="chip">All meals included</span><span class="chip">24×7 CCTV</span></div>
   <div class="actions">
-   <a class="btn btn-wa" href="https://wa.me/{wa}?text=Hi!%20Enquiring%20about%20{p['name'].replace(' ','%20').replace("'","%27")}.%20Please%20share%20room%20options.">💬 WhatsApp</a>
-   <a class="btn btn-amber" href="tel:+{phone}">📞 {disp(phone)}</a>
-   <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="{p['maps']}" target="_blank" rel="noopener">🗺️ Directions</a>
+   <a class="btn btn-wa" href="https://wa.me/{wa}?text=Hi!%20Enquiring%20about%20{p['name'].replace(' ','%20').replace("'","%27")}.%20Please%20share%20room%20options.">{ic("chat")} WhatsApp</a>
+   <a class="btn btn-amber" href="tel:+{phone}">{ic("phone")} {disp(phone)}</a>
+   <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="{p['maps']}" target="_blank" rel="noopener">{ic("pin")} Directions</a>
   </div>
  </div>
 </div>
 
 <section><div class="container">
  <p class="lead">{p['blurb']}</p>
- <p style="color:var(--ink-faint);font-size:.92rem;margin-top:12px">📍 {html.escape(p.get('addr',''))}</p>
- <div class="sister" style="background:var(--teal-tint);border-color:#bfe3e2">🚶 <strong>Visitors welcome — come see a room today.</strong> Most families decide after a quick visit. Walk in, or WhatsApp us and we'll keep a room ready to show you.</div>
+ <p style="color:var(--ink-faint);font-size:.9rem;margin-top:12px;display:flex;gap:7px;align-items:center">{ic("pin","icon")} {html.escape(p.get("addr",""))}</p>
+ <div class="sister" style="background:var(--teal-tint);border-color:#bfe3e2">{ic("person")} <strong>Visitors welcome — come see a room today.</strong> Most families decide after a quick visit. Walk in, or WhatsApp us and we'll keep a room ready to show you.</div>
  {sister}
  <h2 class="mt-3" style="margin-top:44px">Photos</h2>
  <div class="gallery mt-2">{gal}</div>
@@ -396,7 +445,7 @@ def build_property(p):
     <input type="hidden" name="area" value="{html.escape(p['name'])}">
     <label for="f-move">Move-in (roughly)</label>
     <select id="f-move" name="movein"><option>This week</option><option>Within 2 weeks</option><option>This month</option><option>Just exploring</option></select>
-    <button class="btn btn-wa" type="submit">💬 Send on WhatsApp</button>
+    <button class="btn btn-wa" type="submit">{ic("chat")} Send on WhatsApp</button>
     <p class="fine">Prefer to talk? Call <a href="tel:+{phone}">{disp(phone)}</a></p>
    </form>
   </div>
@@ -426,12 +475,12 @@ def build_safety():
   <span class="eyebrow">Our first design principle</span>
   <h2>What "safe" actually means at Aadhya</h2>
   <ul class="ticks">
-   <li><strong>24×7 CCTV</strong> at entrances and common areas, at every property</li>
-   <li><strong>Controlled entry</strong> — visitors don't walk in unannounced</li>
-   <li><strong>On-site caretaker</strong> at each building, with escalation to central management</li>
-   <li><strong>Established residential streets</strong> — our buildings are in lived-in, well-lit neighbourhoods, not isolated plots</li>
-   <li><strong>Separate, secure floors</strong> at our co-living property</li>
-   <li><strong>Responsive management</strong> — one WhatsApp message reaches people who can act</li>
+   <li>{ic("check","icon")}<span><strong>24×7 CCTV</strong> at entrances and common areas, at every property</span></li>
+   <li>{ic("check","icon")}<span><strong>Controlled entry</strong> — visitors don't walk in unannounced</span></li>
+   <li>{ic("check","icon")}<span><strong>On-site caretaker</strong> at each building, with escalation to central management</span></li>
+   <li>{ic("check","icon")}<span><strong>Established residential streets</strong> — our buildings are in lived-in, well-lit neighbourhoods, not isolated plots</span></li>
+   <li>{ic("check","icon")}<span><strong>Separate, secure floors</strong> at our co-living property</span></li>
+   <li>{ic("check","icon")}<span><strong>Responsive management</strong> — one WhatsApp message reaches people who can act</span></li>
   </ul>
  </div>
  <picture><source srcset="assets/img/khajaguda/banner2.webp" type="image/webp">
@@ -439,7 +488,7 @@ def build_safety():
 </div></section>
 <section style="padding-top:0"><div class="container"><div class="band">
  <div><h2>Parents: visit us first.</h2><p>Before your daughter or son moves in, come see the building, meet the caretaker, taste the food. We'll arrange a visit the same day in most cases.</p></div>
- <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20I%27m%20a%20parent%20and%20would%20like%20to%20visit%20a%20property.">💬 Arrange a parent visit</a></div>
+ <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20I%27m%20a%20parent%20and%20would%20like%20to%20visit%20a%20property.">{ic("chat")} Arrange a parent visit</a></div>
 </div></div></section>"""
     return simple("Safety at Aadhya Living | CCTV, Secure Entry & On-site Caretakers","How Aadhya Living keeps residents safe: 24×7 CCTV, controlled entry, on-site caretakers and responsive management at every PG in Hyderabad.","safety.html","Safety isn't a feature here.","It's the reason parents choose us — and residents stay. Here's exactly what we do at every property.",inner)
 
@@ -458,7 +507,7 @@ def build_food():
  <p class="lead mt-2">All three meals are included at every property. Menus vary a little by location and season — this is a representative week. Special meals on Sundays and festivals.</p>
  <table class="menu-table"><thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead><tbody>{rows}</tbody></table>
  <p class="mt-3" style="color:var(--ink-soft)">Dietary preference or allergy? Tell us before you move in — we accommodate where we can.</p>
- <a class="btn btn-wa mt-2" href="https://wa.me/{PH_WOMEN}?text=Hi!%20Question%20about%20the%20food%20menu%20—">💬 Ask about the menu</a>
+ <a class="btn btn-wa mt-2" href="https://wa.me/{PH_WOMEN}?text=Hi!%20Question%20about%20the%20food%20menu%20—">{ic("chat")} Ask about the menu</a>
 </div></section>"""
     return simple("Food at Aadhya Living | All Meals Included at Every PG","Breakfast, lunch and dinner cooked fresh in-house daily at every Aadhya Living PG in Hyderabad. See a sample weekly menu.","food.html","Food you'll actually look forward to.","Three fresh meals a day, cooked in-house at every property — included, always.",inner)
 
@@ -475,7 +524,7 @@ def build_about():
 </div></section>
 <section style="padding-top:0"><div class="container"><div class="band">
  <div><h2>Come see for yourself.</h2><p>The best way to know a PG is to walk through it. Message us — we'll set up a visit today.</p></div>
- <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20I%27d%20like%20to%20visit%20a%20property.">💬 Book a visit</a></div>
+ <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20I%27d%20like%20to%20visit%20a%20property.">{ic("chat")} Book a visit</a></div>
 </div></div></section>"""
     return simple("About Aadhya Living | Hyderabad's Trusted PG & Co-Living Brand","Aadhya Living runs 11 women's, men's and co-living PGs across Hyderabad's IT corridor — built on food, safety and management standards residents recommend.","about.html","A brand built by word of mouth.","11 properties. Three neighbourhoods' worth of residents who found us the same way: a friend said, 'stay at Aadhya.'",inner)
 
@@ -483,18 +532,18 @@ def build_contact():
     rows = "".join(f"""<article class="card"><div class="card-body">
 <h3>{html.escape(p['name'])}</h3><p class="card-near">{p['area']}</p>
 <div class="card-actions">
-<a class="btn btn-blue btn-sm" href="tel:+{TYPE_META[p['type']][2]}">📞 Call</a>
-<a class="btn btn-wa btn-sm" href="https://wa.me/{TYPE_META[p['type']][2]}">💬 WhatsApp</a>
-<a class="btn btn-ghost btn-sm" href="{p['maps']}" target="_blank" rel="noopener">🗺️ Map</a>
+<a class="btn btn-blue btn-sm" href="tel:+{TYPE_META[p['type']][2]}">{ic("phone")} Call</a>
+<a class="btn btn-wa btn-sm" href="https://wa.me/{TYPE_META[p['type']][2]}">{ic("chat")} WhatsApp</a>
+<a class="btn btn-ghost btn-sm" href="{p['maps']}" target="_blank" rel="noopener">{ic("pin")} Map</a>
 </div></div></article>""" for p in PROPERTIES)
     inner = f"""<section><div class="container">
  <div class="grid-2">
   <div>
    <h2>One number per need</h2>
    <ul class="ticks mt-2">
-    <li><strong>Men's PGs:</strong>&nbsp;<a href="tel:+{PH_MEN}">{disp(PH_MEN)}</a></li>
-    <li><strong>Women's PGs:</strong>&nbsp;<a href="tel:+{PH_WOMEN}">{disp(PH_WOMEN)}</a></li>
-    <li><strong>Co-Living (Aadhya Elite):</strong>&nbsp;<a href="tel:+{PH_COLIVE}">{disp(PH_COLIVE)}</a></li>
+    <li>{ic("phone","icon")}<span><strong>Men's PGs:</strong>&nbsp;<a href="tel:+{PH_MEN}">{disp(PH_MEN)}</a></span></li>
+    <li>{ic("phone","icon")}<span><strong>Women's PGs:</strong>&nbsp;<a href="tel:+{PH_WOMEN}">{disp(PH_WOMEN)}</a></span></li>
+    <li>{ic("phone","icon")}<span><strong>Co-Living (Aadhya Elite):</strong>&nbsp;<a href="tel:+{PH_COLIVE}">{disp(PH_COLIVE)}</a></span></li>
    </ul>
    <h2 style="margin-top:44px">Or start on WhatsApp</h2>
    <form class="enq mt-2" id="enquiry-form" data-wa="{PH_WOMEN}">
@@ -505,7 +554,7 @@ def build_contact():
     <select id="c-area" name="area"><option>Gachibowli</option><option>Kondapur</option><option>Hitec City / Madhapur</option><option>Khajaguda</option><option>Flexible</option></select>
     <label for="c-move">Move-in (roughly)</label>
     <select id="c-move" name="movein"><option>This week</option><option>Within 2 weeks</option><option>This month</option><option>Just exploring</option></select>
-    <button class="btn btn-wa" type="submit">💬 Send on WhatsApp</button>
+    <button class="btn btn-wa" type="submit">{ic("chat")} Send on WhatsApp</button>
    </form>
   </div>
   <div><h2>Every property, one tap away</h2><div class="prop-grid mt-2" style="grid-template-columns:1fr">{rows}</div></div>

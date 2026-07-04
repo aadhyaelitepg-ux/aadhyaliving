@@ -41,3 +41,15 @@ cPanel-style hosting is recommended.
   in build.py (the `menu` list in build_food)
 - Street addresses per property (currently area-level only) — send them and
   I'll add to pages + schema, which strengthens local SEO further
+
+## Design system (v2 — "Corridor")
+The site now uses a distinctive wayfinding/transit-map identity built around
+your real strength: 11 homes strung along Hyderabad's IT corridor.
+- Hero = an interactive "Aadhya Line" route map (tap a stop → that neighbourhood)
+- Fonts: Sora (display) · Hanken Grotesk (body) · Space Mono (labels/data)
+- All emoji replaced with a custom line-icon set
+- Palette: midnight navy ink · amber route-line · blueprint paper
+- The previous stylesheet is saved as assets/css/style.backup.css if you ever
+  want to compare or revert.
+All 21 pages regenerate from build.py exactly as before — nothing about
+deployment changes.

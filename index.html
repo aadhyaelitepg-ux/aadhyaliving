@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Aadhya Living",
@@ -31,30 +31,50 @@
  <div class="container nav">
   <a class="logo" href="index.html" aria-label="Aadhya Living home"><img src="assets/img/al-logo-color.svg" alt="Aadhya Living"></a>
   <ul class="nav-links"><li><a href="index.html" class="active">Home</a></li><li><a href="index.html#locations" class="">Locations</a></li><li><a href="safety.html" class="">Safety</a></li><li><a href="food.html" class="">Food</a></li><li><a href="reviews.html" class="">Reviews</a></li><li><a href="about.html" class="">About</a></li><li><a href="contact.html" class="">Contact</a></li></ul>
-  <a class="btn btn-amber btn-sm nav-cta" href="tel:+918345888999">📞 +91 83458 88999</a>
+  <a class="btn btn-amber btn-sm nav-cta" href="tel:+918345888999"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg> +91 83458 88999</a>
   <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span></button>
  </div>
  <nav class="mobile-menu container"><a href="index.html">Home</a><a href="index.html#locations">Locations</a><a href="safety.html">Safety</a><a href="food.html">Food</a><a href="reviews.html">Reviews</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-  <a class="btn btn-amber menu-call" href="tel:+918345888999" style="display:inline-flex">📞 Call us</a>
+  <a class="btn btn-amber menu-call" href="tel:+918345888999" style="display:inline-flex"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg> Call us</a>
  </nav>
 </header>
 
-<div class="hero">
- <div class="hero-media"><picture>
-  <source srcset="assets/img/khajaguda/hero-building.webp" type="image/webp">
-  <img src="assets/img/khajaguda/hero-building.jpg" alt="Aadhya Living PG building in Khajaguda, Hyderabad" fetchpriority="high"></picture></div>
- <div class="container hero-inner">
-  <span class="eyebrow" style="color:var(--amber)">Women's · Men's · Co-Living</span>
-  <h1>Your home in Hyderabad's tech corridor.</h1>
-  <p>11 professionally managed PGs across Gachibowli, Kondapur, Hitec City and Khajaguda — fresh food, real safety, and a room for every budget.</p>
-  <div class="hero-actions">
-   <a class="btn btn-amber" href="https://wa.me/918345888999?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">💬 WhatsApp us</a>
-   <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#locations">Explore locations</a>
+<section class="route-hero">
+ <div class="container route-wrap">
+  <div>
+   <span class="eyebrow">Women's · Men's · Co-Living</span>
+   <h1>A home on every stop of your <em>commute.</em></h1>
+   <p>11 professionally managed PGs strung along Hyderabad's IT corridor. Wherever you work, there's an Aadhya minutes away — with fresh food, real safety, and a room for every budget.</p>
+   <div class="hero-actions">
+    <a class="btn btn-amber" href="https://wa.me/918345888999?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG."><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/></svg> WhatsApp us</a>
+    <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="#locations">Explore the map <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   </div>
+   <div class="hero-metrics">
+    <div class="m"><b>11</b><span>Properties</span></div>
+    <div class="m"><b>4</b><span>Neighbourhoods</span></div>
+    <div class="m"><b>3</b><span>meals daily</span></div>
+    <div class="m"><b>24×7</b><span>CCTV secured</span></div>
+   </div>
   </div>
-  <div class="hero-chips"><span class="chip">11 properties</span><span class="chip">All meals included</span><span class="chip">24×7 CCTV</span><span class="chip">Minutes from major IT campuses</span></div>
+  <div class="route-map">
+   <div class="rm-head"><b>The Aadhya Line</b><span>HYD · IT CORRIDOR</span></div>
+   <div class="line"><div class="track"></div><a class="station" href="#locations">
+     <span class="peak"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+     <span><span class="s-name">Gachibowli</span><span class="s-meta">Wipro · DLF · Amazon · ISB</span></span>
+     <span class="s-count">6 homes</span></a><a class="station" href="womens-pg-kondapur.html">
+     <span class="peak"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+     <span><span class="s-name">Kondapur</span><span class="s-meta">Hitec City · Sarath City Mall</span></span>
+     <span class="s-count">1 home</span></a><a class="station" href="coliving-pg-hitec-city.html">
+     <span class="peak"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+     <span><span class="s-name">Hitec City</span><span class="s-meta">Mindspace · Cyber Towers</span></span>
+     <span class="s-count">1 home</span></a><a class="station" href="womens-pg-khajaguda.html">
+     <span class="peak"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+     <span><span class="s-name">Khajaguda</span><span class="s-meta">Financial District · Nanakramguda</span></span>
+     <span class="s-count">3 homes</span></a></div>
+   <div class="rm-foot">↑ tap a stop to see homes there</div>
+  </div>
  </div>
- <div class="hero-note">Our Khajaguda property — photographed, not stock.</div>
-</div>
+</section>
 
 <section id="locations">
  <div class="container">
@@ -67,13 +87,14 @@
    <button data-filter="men">Men's</button>
    <button data-filter="colive">Co-Living</button>
   </div>
-  <div class="corridor mt-3"><div class="area-group"><div class="area-title">Gachibowli</div>
+  <div class="corridor mt-3"><div class="area-group"><span class="area-marker"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+<div class="area-title">Gachibowli <span class="stops">6 stops</span></div>
 <div class="area-sub">The heart of the IT corridor — Wipro Circle, DLF, Amazon, ISB</div><div class="prop-grid"><article class="card prop-card" data-type="men">
- <a class="card-media" href="mens-pg-gachibowli.html" aria-label="Aadhya Men&#x27;s PG – Gachibowli"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="mens-pg-gachibowli.html" aria-label="Aadhya Men&#x27;s PG – Gachibowli"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-m">Men's PG</span></a>
  <div class="card-body">
   <h3><a href="mens-pg-gachibowli.html" style="color:inherit">Aadhya Men&#x27;s PG – Gachibowli</a></h3>
-  <p class="card-near">Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="mens-pg-gachibowli.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/919888877789?text=Hi!%20Enquiring%20about%20Aadhya%20Men's%20PG%20–%20Gachibowli">WhatsApp</a>
@@ -81,11 +102,11 @@
   </div>
  </div>
 </article><article class="card prop-card" data-type="men">
- <a class="card-media" href="mens-pg-2-gachibowli.html" aria-label="Aadhya Men&#x27;s PG 2 – Gachibowli"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="mens-pg-2-gachibowli.html" aria-label="Aadhya Men&#x27;s PG 2 – Gachibowli"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-m">Men's PG</span></a>
  <div class="card-body">
   <h3><a href="mens-pg-2-gachibowli.html" style="color:inherit">Aadhya Men&#x27;s PG 2 – Gachibowli</a></h3>
-  <p class="card-near">Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="mens-pg-2-gachibowli.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/919888877789?text=Hi!%20Enquiring%20about%20Aadhya%20Men's%20PG%202%20–%20Gachibowli">WhatsApp</a>
@@ -93,11 +114,11 @@
   </div>
  </div>
 </article><article class="card prop-card" data-type="men">
- <a class="card-media" href="mens-pg-janardhan-hills.html" aria-label="Aadhya Men&#x27;s PG – Janardhan Hills, Gachibowli"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="mens-pg-janardhan-hills.html" aria-label="Aadhya Men&#x27;s PG – Janardhan Hills, Gachibowli"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-m">Men's PG</span></a>
  <div class="card-body">
   <h3><a href="mens-pg-janardhan-hills.html" style="color:inherit">Aadhya Men&#x27;s PG – Janardhan Hills, Gachibowli</a></h3>
-  <p class="card-near">Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="mens-pg-janardhan-hills.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/919888877789?text=Hi!%20Enquiring%20about%20Aadhya%20Men's%20PG%20–%20Janardhan%20Hills,%20Gachibowli">WhatsApp</a>
@@ -105,11 +126,11 @@
   </div>
  </div>
 </article><article class="card prop-card" data-type="women">
- <a class="card-media" href="womens-pg-gachibowli.html" aria-label="Aadhya Women&#x27;s PG – Gachibowli"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="womens-pg-gachibowli.html" aria-label="Aadhya Women&#x27;s PG – Gachibowli"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-w">Women's PG</span></a>
  <div class="card-body">
   <h3><a href="womens-pg-gachibowli.html" style="color:inherit">Aadhya Women&#x27;s PG – Gachibowli</a></h3>
-  <p class="card-near">Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Wipro Circle · DLF Cybercity · Amazon Development Centre</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="womens-pg-gachibowli.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/918345888999?text=Hi!%20Enquiring%20about%20Aadhya%20Women's%20PG%20–%20Gachibowli">WhatsApp</a>
@@ -117,11 +138,11 @@
   </div>
  </div>
 </article><article class="card prop-card" data-type="women">
- <a class="card-media" href="womens-pg-telecom-nagar.html" aria-label="Aadhya Women&#x27;s PG – Telecom Nagar, Gachibowli"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="womens-pg-telecom-nagar.html" aria-label="Aadhya Women&#x27;s PG – Telecom Nagar, Gachibowli"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-w">Women's PG</span></a>
  <div class="card-body">
   <h3><a href="womens-pg-telecom-nagar.html" style="color:inherit">Aadhya Women&#x27;s PG – Telecom Nagar, Gachibowli</a></h3>
-  <p class="card-near">Near Telecom Nagar · Wipro Circle · DLF Cybercity</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Telecom Nagar · Wipro Circle · DLF Cybercity</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="womens-pg-telecom-nagar.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/918345888999?text=Hi!%20Enquiring%20about%20Aadhya%20Women's%20PG%20–%20Telecom%20Nagar,%20Gachibowli">WhatsApp</a>
@@ -129,50 +150,53 @@
   </div>
  </div>
 </article><article class="card prop-card" data-type="women">
- <a class="card-media" href="ss-grand-womens-pg-gachibowli.html" aria-label="SS Grand Women&#x27;s PG – by Aadhya Living"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="ss-grand-womens-pg-gachibowli.html" aria-label="SS Grand Women&#x27;s PG – by Aadhya Living"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-w">Women's PG</span></a>
  <div class="card-body">
   <h3><a href="ss-grand-womens-pg-gachibowli.html" style="color:inherit">SS Grand Women&#x27;s PG – by Aadhya Living</a></h3>
-  <p class="card-near">Near Hitec City · Kothaguda Junction · Whitefields</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Hitec City · Kothaguda Junction · Whitefields</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="ss-grand-womens-pg-gachibowli.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/918345888999?text=Hi!%20Enquiring%20about%20SS%20Grand%20Women's%20PG%20–%20by%20Aadhya%20Living">WhatsApp</a>
    <a class="btn btn-ghost btn-sm" href="tel:+918345888999">Call</a>
   </div>
  </div>
-</article></div></div><div class="area-group"><div class="area-title">Kondapur</div>
+</article></div></div><div class="area-group"><span class="area-marker"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+<div class="area-title">Kondapur <span class="stops">1 stop</span></div>
 <div class="area-sub">Between Hitec City and Gachibowli — malls, metro, everything nearby</div><div class="prop-grid"><article class="card prop-card" data-type="women">
- <a class="card-media" href="womens-pg-kondapur.html" aria-label="Aadhya Women&#x27;s PG – Kondapur"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="womens-pg-kondapur.html" aria-label="Aadhya Women&#x27;s PG – Kondapur"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-w">Women's PG</span></a>
  <div class="card-body">
   <h3><a href="womens-pg-kondapur.html" style="color:inherit">Aadhya Women&#x27;s PG – Kondapur</a></h3>
-  <p class="card-near">Near Kothaguda Junction · Sarath City Capital Mall · Botanical Garden</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Kothaguda Junction · Sarath City Capital Mall · Botanical Garden</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="womens-pg-kondapur.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/918345888999?text=Hi!%20Enquiring%20about%20Aadhya%20Women's%20PG%20–%20Kondapur">WhatsApp</a>
    <a class="btn btn-ghost btn-sm" href="tel:+918345888999">Call</a>
   </div>
  </div>
-</article></div></div><div class="area-group"><div class="area-title">Hitec City · Madhapur</div>
+</article></div></div><div class="area-group"><span class="area-marker"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+<div class="area-title">Hitec City · Madhapur <span class="stops">1 stop</span></div>
 <div class="area-sub">Mindspace, Cyber Towers, Hitex — premium co-living</div><div class="prop-grid"><article class="card prop-card" data-type="colive">
- <a class="card-media" href="coliving-pg-hitec-city.html" aria-label="Aadhya Elite Co-Living PG – Hitec City, Madhapur"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="coliving-pg-hitec-city.html" aria-label="Aadhya Elite Co-Living PG – Hitec City, Madhapur"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-c">Co-Living</span></a>
  <div class="card-body">
   <h3><a href="coliving-pg-hitec-city.html" style="color:inherit">Aadhya Elite Co-Living PG – Hitec City, Madhapur</a></h3>
-  <p class="card-near">Near Hitex Exhibition Centre · Mindspace IT Park · Cyber Towers</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Hitex Exhibition Centre · Mindspace IT Park · Cyber Towers</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="coliving-pg-hitec-city.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/919888878899?text=Hi!%20Enquiring%20about%20Aadhya%20Elite%20Co-Living%20PG%20–%20Hitec%20City,%20Madhapur">WhatsApp</a>
    <a class="btn btn-ghost btn-sm" href="tel:+919888878899">Call</a>
   </div>
  </div>
-</article></div></div><div class="area-group"><div class="area-title">Khajaguda</div>
+</article></div></div><div class="area-group"><span class="area-marker"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 3 20h18z" fill="#ff9d00" stroke="none"/><path d="M12 9 8 20h8z" fill="#0b1e3b" stroke="none"/></svg></span>
+<div class="area-title">Khajaguda <span class="stops">3 stops</span></div>
 <div class="area-sub">Financial District's neighbourhood — Wells Fargo, ICICI, Nanakramguda</div><div class="prop-grid"><article class="card prop-card" data-type="women">
  <a class="card-media" href="womens-pg-khajaguda.html" aria-label="Aadhya Women&#x27;s PG – Khajaguda"><img src="assets/img/khajaguda/gallery1-sm.webp" alt="Aadhya Women&#x27;s PG – Khajaguda building" loading="lazy" width="640" height="427">
   <span class="badge badge-w">Women's PG</span></a>
  <div class="card-body">
   <h3><a href="womens-pg-khajaguda.html" style="color:inherit">Aadhya Women&#x27;s PG – Khajaguda</a></h3>
-  <p class="card-near">Near Financial District · Wells Fargo & ICICI campuses · Nanakramguda</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Financial District · Wells Fargo & ICICI campuses · Nanakramguda</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="womens-pg-khajaguda.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/918345888999?text=Hi!%20Enquiring%20about%20Aadhya%20Women's%20PG%20–%20Khajaguda">WhatsApp</a>
@@ -180,11 +204,11 @@
   </div>
  </div>
 </article><article class="card prop-card" data-type="women">
- <a class="card-media" href="womens-pg-prashant-hills.html" aria-label="Aadhya Women&#x27;s PG – Prashant Hills, Khajaguda"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="womens-pg-prashant-hills.html" aria-label="Aadhya Women&#x27;s PG – Prashant Hills, Khajaguda"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-w">Women's PG</span></a>
  <div class="card-body">
   <h3><a href="womens-pg-prashant-hills.html" style="color:inherit">Aadhya Women&#x27;s PG – Prashant Hills, Khajaguda</a></h3>
-  <p class="card-near">Near Financial District · Wells Fargo & ICICI campuses · Nanakramguda</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Financial District · Wells Fargo & ICICI campuses · Nanakramguda</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="womens-pg-prashant-hills.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/918345888999?text=Hi!%20Enquiring%20about%20Aadhya%20Women's%20PG%20–%20Prashant%20Hills,%20Khajaguda">WhatsApp</a>
@@ -192,11 +216,11 @@
   </div>
  </div>
 </article><article class="card prop-card" data-type="men">
- <a class="card-media" href="mens-pg-khajaguda.html" aria-label="Aadhya Men&#x27;s PG – Khajaguda"><div class="soon">📸 Photos coming soon</div>
+ <a class="card-media" href="mens-pg-khajaguda.html" aria-label="Aadhya Men&#x27;s PG – Khajaguda"><div class="soon"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13" r="3.5"/></svg>Photos coming soon</div>
   <span class="badge badge-m">Men's PG</span></a>
  <div class="card-body">
   <h3><a href="mens-pg-khajaguda.html" style="color:inherit">Aadhya Men&#x27;s PG – Khajaguda</a></h3>
-  <p class="card-near">Near Financial District · Wells Fargo & ICICI campuses · Nanakramguda</p>
+  <p class="card-near"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Near Financial District · Wells Fargo & ICICI campuses · Nanakramguda</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="mens-pg-khajaguda.html">View</a>
    <a class="btn btn-wa btn-sm" href="https://wa.me/919888877789?text=Hi!%20Enquiring%20about%20Aadhya%20Men's%20PG%20–%20Khajaguda">WhatsApp</a>
@@ -211,7 +235,7 @@
  <div class="container">
   <span class="eyebrow">Why Aadhya</span>
   <h2>Run like a brand, feels like a home</h2>
-  <div class="feat-grid"><div class="feat"><div class="ico">🍛</div><h3>Fresh food, daily</h3><p>Breakfast, lunch and dinner cooked in-house — a weekly menu you'll actually look forward to.</p></div><div class="feat"><div class="ico">🛡️</div><h3>Safety first</h3><p>CCTV, controlled entry and on-site caretakers at every property. Parents, we built this for your peace of mind.</p></div><div class="feat"><div class="ico">🧹</div><h3>Fully serviced</h3><p>Housekeeping, laundry machines, hot water, Wi-Fi and power backup — all handled, always included.</p></div><div class="feat"><div class="ico">💰</div><h3>Every budget</h3><p>From economical sharing to premium singles across 11 properties — there's an Aadhya home at your price.</p></div></div>
+  <div class="feat-grid"><div class="feat"><div class="ico"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3v7a3 3 0 0 0 6 0V3M7 3v18M17 3c-2 0-3 2-3 5s1 4 3 4 3-1 3-4-1-5-3-5ZM17 12v9"/></svg></div><h3>Fresh food, daily</h3><p>Breakfast, lunch and dinner cooked in-house — a weekly menu you'll actually look forward to.</p></div><div class="feat"><div class="ico"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div><h3>Safety first</h3><p>CCTV, controlled entry and on-site caretakers at every property. Parents, we built this for your peace of mind.</p></div><div class="feat"><div class="ico"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5 12 12M11 9l4 4-5 5H5v-2l1-1M6 18l-2 3"/></svg></div><h3>Fully serviced</h3><p>Housekeeping, laundry machines, hot water, Wi-Fi and power backup — all handled, always included.</p></div><div class="feat"><div class="ico"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7M6 10v9h12v-9"/></svg></div><h3>Every budget</h3><p>From economical sharing to premium singles across 11 properties — there's an Aadhya home at your price.</p></div></div>
  </div>
 </section>
 
@@ -220,7 +244,7 @@
   <div><h2>Every budget has a home here.</h2>
    <p>We don't publish one price because we don't have one product — economical sharing, comfortable doubles, premium singles. Tell us what you can spend; we'll show you what it gets.</p></div>
   <div class="btn-row">
-   <a class="btn btn-amber" href="https://wa.me/918345888999?text=Hi!%20My%20budget%20is%20____%20—%20what%20rooms%20do%20you%20have%3F">💬 Share your budget</a>
+   <a class="btn btn-amber" href="https://wa.me/918345888999?text=Hi!%20My%20budget%20is%20____%20—%20what%20rooms%20do%20you%20have%3F"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/></svg> Share your budget</a>
    <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="contact.html">Book a visit</a>
   </div>
  </div></div>
@@ -232,10 +256,10 @@
    <span class="eyebrow">For parents, especially</span>
    <h2>Safety isn't a feature. It's the foundation.</h2>
    <ul class="ticks">
-    <li>24×7 CCTV coverage in common areas and entrances</li>
-    <li>Controlled entry and visitor policy at every property</li>
-    <li>On-site caretakers and responsive management</li>
-    <li>Well-lit surroundings in established residential pockets</li>
+    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>24×7 CCTV coverage in common areas and entrances</span></li>
+    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Controlled entry and visitor policy at every property</span></li>
+    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>On-site caretakers and responsive management</span></li>
+    <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Well-lit surroundings in established residential pockets</span></li>
    </ul>
    <a class="btn btn-blue mt-3" href="safety.html" style="margin-top:24px">How we keep residents safe</a>
   </div>
@@ -261,17 +285,17 @@
  </div>
 </section>
 <div class="action-bar">
- <a class="ab-call" href="tel:+918345888999"><span>📞</span>Call</a>
- <a class="ab-wa" href="https://wa.me/918345888999?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG."><span>💬</span>WhatsApp</a>
- <a href="https://aadhyaliving.in" target="_blank" rel="noopener"><span>🗺️</span>Directions</a>
+ <a class="ab-call" href="tel:+918345888999"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>Call</a>
+ <a class="ab-wa" href="https://wa.me/918345888999?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG."><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/></svg>WhatsApp</a>
+ <a class="ab-dir" href="https://aadhyaliving.in" target="_blank" rel="noopener"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Directions</a>
 </div>
 <footer>
  <div class="container foot-grid">
   <div class="foot-logo"><img src="assets/img/al-logo.svg" alt="Aadhya Living">
    <p style="font-size:.92rem">Professionally managed PGs & co-living across Hyderabad's IT corridor — Gachibowli, Kondapur, Hitec City & Khajaguda. A home for every budget.</p>
    <div class="socials">
-    <a href="https://www.instagram.com/" aria-label="Instagram">📷</a>
-    <a href="https://wa.me/918345888999" aria-label="WhatsApp">💬</a>
+    <a href="https://www.instagram.com/" aria-label="Instagram"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://wa.me/918345888999" aria-label="WhatsApp"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/></svg></a>
    </div>
   </div>
   <div><h4>Locations</h4><a href="mens-pg-gachibowli.html">Men's PG · Gachibowli</a><a href="mens-pg-2-gachibowli.html">Men's PG · Gachibowli</a><a href="mens-pg-janardhan-hills.html">Men's PG · Janardhan Hills</a><a href="womens-pg-gachibowli.html">Women's PG · Gachibowli</a><a href="womens-pg-telecom-nagar.html">Women's PG · Telecom Nagar</a><a href="womens-pg-kondapur.html">Women's PG · Kondapur</a><a href="coliving-pg-hitec-city.html">Co-Living · Hitec City</a></div>
@@ -286,6 +310,6 @@
  </div>
  <div class="container foot-note"><span>© 2026 Aadhya Living, Hyderabad. All rights reserved.</span><span>Women's · Men's · Co-Living PGs</span></div>
 </footer>
-<a class="wa-float" href="https://wa.me/918345888999?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG." aria-label="Chat on WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/918345888999?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG." aria-label="Chat on WhatsApp"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/></svg></a>
 <script src="assets/js/main.js"></script>
 </body></html>
