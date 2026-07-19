@@ -145,7 +145,7 @@ def nav(active=""):
     ml = "".join(f'<a href="{h}">{t}</a>' for h,t in links)
     return f"""<header class="site-header">
  <div class="container nav">
-  <a class="logo" href="index.html" aria-label="Aadhya Living home"><img src="assets/logo/aadhya_logo.jpeg" alt="Aadhya Living" style="height:40px;width:auto;border-radius:4px;object-fit:contain"></a>
+  <a class="logo" href="index.html" aria-label="Aadhya Living home"><img src="assets/logo/aadhya_logo.jpeg" alt="Aadhya Living" style="height:52px;max-height:56px;width:auto;border-radius:6px;object-fit:contain"></a>
   <ul class="nav-links">{dl}</ul>
   <a class="btn btn-amber btn-sm nav-cta" href="tel:+{PH_WOMEN}">{ic('phone')} {disp(PH_WOMEN)}</a>
   <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span></button>
@@ -275,8 +275,11 @@ def build_home():
                 ("Hitec City","Mindspace · Cyber Towers",1,"coliving-pg-hitec-city.html"),
                 ("Khajaguda","Financial District · Nanakramguda",3,"womens-pg-khajaguda.html")]
     st_html = "".join(f"""<a class="station" href="{href}">
-     <span class="peak">{ic('peak','')}</span>
-     <span><span class="s-name">{nm}</span><span class="s-meta">{mt}</span></span>
+     <span class="peak">{ic('peak')}</span>
+     <div class="s-info">
+      <div class="s-name">{nm}</div>
+      <div class="s-meta">{mt}</div>
+     </div>
      <span class="s-count">{n} {'home' if n==1 else 'homes'}</span></a>""" for nm,mt,n,href in stations)
 
     body = f"""{nav('index.html')}
