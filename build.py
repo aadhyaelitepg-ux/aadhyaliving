@@ -96,7 +96,7 @@ PROPERTIES = [
       maps="https://maps.app.goo.gl/U742wPPCC1jnH7Kh9", addr='Road no 4, Plot no 284, Prashant Hills, Gachibowli, Rai Durg, Hyderabad, Telangana 500032', pin='500032', kw=['mens pg in khajaguda', 'boys hostel in khajaguda', 'pg near financial district'], near=LANDMARKS["khajaguda"],
       blurb="A men's PG in Khajaguda built for Financial District commuters — minutes from Wells Fargo, ICICI and the Nanakramguda tech corridor, with all meals and housekeeping included."),
  dict(slug="ss-grand-womens-pg-gachibowli", name="SS Grand Women's PG – by Aadhya Living", short="Women's PG · Gachibowli East",
-      type="women", area="Gachibowli", lat=17.4428348, lng=78.385631,
+      type="women", area="Hitec City · Madhapur", lat=17.4428348, lng=78.385631,
       maps="https://maps.app.goo.gl/gWBhoxZ53h3TGMgdA", addr='Gachibowli, Hyderabad, Telangana 500032', pin='500032', kw=['womens pg in gachibowli', 'ladies pg near me', 'girls hostel gachibowli'], near=LANDMARKS["ssgrand"],
       blurb="SS Grand is a long-running women's hostel now part of the Aadhya Living family — located between Gachibowli and Hitec City with quick access to Kothaguda Junction and Whitefields offices."),
 ]
