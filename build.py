@@ -296,7 +296,7 @@ def build_home():
    <div class="hero-metrics">
     <div class="m"><b>11</b><span>Properties</span></div>
     <div class="m"><b>4</b><span>Neighbourhoods</span></div>
-    <div class="m"><b>3</b><span>meals daily</span></div>
+    <div class="m"><b>1500+</b><span>Beds in Hyderabad</span></div>
     <div class="m"><b>24×7</b><span>CCTV secured</span></div>
    </div>
   </div>
