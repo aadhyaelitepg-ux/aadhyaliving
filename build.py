@@ -846,6 +846,21 @@ ExpiresByType application/javascript "access plus 7 days"
 
 ROBOTS = f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n"
 
+def make_redirect_html(target_url):
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={target_url}">
+<link rel="canonical" href="{SITE}/{target_url}">
+<script>window.location.replace("{target_url}");</script>
+<title>Redirecting to Aadhya Living...</title>
+</head>
+<body style="font-family:sans-serif;text-align:center;padding:50px">
+<p>Redirecting to <a href="{target_url}">Aadhya Living</a>...</p>
+</body>
+</html>"""
+
 # ---------------------------------------------------------------- run
 OUT = os.path.dirname(os.path.abspath(__file__))
 careers_content = build_careers()
@@ -853,6 +868,20 @@ pages = {"index.html": build_home(), "safety.html": build_safety(), "food.html":
          "about.html": build_about(), "contact.html": build_contact(), "reviews.html": build_reviews(),
          "careers.html": careers_content, "GoogleAI_Job_Roles.html": careers_content,
          "404.html": build_404(), "sitemap.xml": build_sitemap(), ".htaccess": HTACCESS, "robots.txt": ROBOTS}
+
+# Add HTML redirects for legacy URLs (works on Railway, Vercel, Netlify & GitHub Pages)
+legacy_redirects = {
+    "khajaguda.html": "womens-pg-khajaguda.html",
+    "gachibowli.html": "index.html",
+    "kondapur.html": "womens-pg-kondapur.html",
+    "madhapur.html": "coliving-pg-hitec-city.html",
+    "nanakramguda.html": "mens-pg-khajaguda.html",
+    "kphb.html": "index.html",
+    "blog.html": "index.html"
+}
+for old_page, new_target in legacy_redirects.items():
+    pages[old_page] = make_redirect_html(new_target)
+
 for p in PROPERTIES:
     pages[p["slug"] + ".html"] = build_property(p)
 for name, content in pages.items():
