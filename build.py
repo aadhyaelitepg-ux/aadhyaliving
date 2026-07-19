@@ -186,16 +186,16 @@ def footer():
 
 def action_bar(call, wa, maps):
     return f"""<div class="action-bar">
- <a class="ab-call" href="tel:+{call}">{ic('phone','')}Call</a>
- <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat','')}WhatsApp</a>
- <a class="ab-dir" href="{maps}" target="_blank" rel="noopener">{ic('pin','')}Directions</a>
+ <a class="ab-call" href="tel:+{call}">{ic('phone')}Call</a>
+ <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat')}WhatsApp</a>
+ <a class="ab-dir" href="{maps}" target="_blank" rel="noopener">{ic('pin')}Directions</a>
 </div>"""
 
 def action_bar_simple(call, wa):
     return f"""<div class="action-bar">
- <a class="ab-home" href="index.html">{ic('home','')}Home</a>
- <a class="ab-call" href="tel:+{call}">{ic('phone','')}Call</a>
- <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat','')}WhatsApp</a>
+ <a class="ab-home" href="index.html">{ic('home')}Home</a>
+ <a class="ab-call" href="tel:+{call}">{ic('phone')}Call</a>
+ <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat')}WhatsApp</a>
 </div>"""
 
 def card(p):
