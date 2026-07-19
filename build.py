@@ -145,7 +145,7 @@ def nav(active=""):
     ml = "".join(f'<a href="{h}">{t}</a>' for h,t in links)
     return f"""<header class="site-header">
  <div class="container nav">
-  <a class="logo" href="index.html" aria-label="Aadhya Living home"><img src="assets/img/al-logo-color.svg" alt="Aadhya Living"></a>
+  <a class="logo" href="index.html" aria-label="Aadhya Living home"><img src="assets/logo/aadhya_logo.jpeg" alt="Aadhya Living" style="height:40px;width:auto;border-radius:4px;object-fit:contain"></a>
   <ul class="nav-links">{dl}</ul>
   <a class="btn btn-amber btn-sm nav-cta" href="tel:+{PH_WOMEN}">{ic('phone')} {disp(PH_WOMEN)}</a>
   <button class="hamburger" aria-label="Open menu" aria-expanded="false"><span></span></button>
@@ -161,7 +161,7 @@ def footer():
     loc2 = "".join(f'<a href="{p["slug"]}.html">{p["short"]}</a>' for p in PROPERTIES[7:])
     return f"""<footer>
  <div class="container foot-grid">
-  <div class="foot-logo"><img src="assets/img/al-logo.svg" alt="Aadhya Living">
+  <div class="foot-logo"><img src="assets/logo/aadhya_logo.jpeg" alt="Aadhya Living" style="height:48px;width:auto;border-radius:6px;object-fit:contain">
    <p style="font-size:.92rem">Professionally managed PGs & co-living across Hyderabad's IT corridor — Gachibowli, Kondapur, Hitec City & Khajaguda. A home for every budget.</p>
    <div class="socials">
     <a href="https://www.instagram.com/" aria-label="Instagram">{ic('insta','')}</a>
@@ -186,6 +186,7 @@ def footer():
 
 def action_bar(call, wa, maps):
     return f"""<div class="action-bar">
+ <a class="ab-home" href="index.html">{ic('home')}Home</a>
  <a class="ab-call" href="tel:+{call}">{ic('phone')}Call</a>
  <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat')}WhatsApp</a>
  <a class="ab-dir" href="{maps}" target="_blank" rel="noopener">{ic('pin')}Directions</a>
