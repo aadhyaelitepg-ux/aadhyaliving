@@ -139,7 +139,7 @@ def head(title, desc, path, extra=""):
 
 def nav(active=""):
     links = [("index.html","Home"),("index.html#locations","Locations"),("safety.html","Safety"),
-             ("food.html","Food"),("reviews.html","Reviews"),("about.html","About"),("contact.html","Contact")]
+             ("food.html","Food"),("reviews.html","Reviews"),("about.html","About"),("contact.html","Contact"),("careers.html","Careers")]
     dl = "".join(f'<li><a href="{h}" class="{"active" if h==active else ""}">{t}</a></li>' for h,t in links)
     ml = "".join(f'<a href="{h}">{t}</a>' for h,t in links)
     return f"""<header class="site-header">
@@ -579,6 +579,217 @@ def build_reviews():
 </div></section>"""
     return simple("Aadhya Living Reviews | Real Google Ratings by Property","Read verified Google reviews for every Aadhya Living PG in Gachibowli, Kondapur, Hitec City and Khajaguda, Hyderabad.","reviews.html","Reviews we can't edit.","Every property links straight to its Google listing — read what residents actually say.",inner)
 
+def build_careers():
+    def apply_block(role):
+        wa_text = f"Hi Venkat! I'm registering my interest for the {role} position."
+        wa_url = f"https://wa.me/916304392325?text={html.escape(wa_text).replace(' ', '%20')}"
+        return f"""
+  <div class="apply-box" style="margin-top:32px;padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm)">
+   <h3 style="font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:4px">Fast Track Application Options</h3>
+   <p style="font-size:0.9rem;color:var(--ink-soft);margin-bottom:20px">Choose how you'd like to apply directly via your hostel network:</p>
+   
+   <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:18px">
+    <!-- Option 1: WhatsApp -->
+    <div style="background:var(--surface);padding:20px;border-radius:12px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)">
+     <div>
+      <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#1eb85a;margin-bottom:6px">Option 1</span>
+      <h4 style="font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:4px">Register your interest</h4>
+      <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:16px;line-height:1.5">Send a WhatsApp message directly to <strong>+91 6304392325</strong> to register your profile.</p>
+     </div>
+     <a href="{wa_url}" target="_blank" rel="noopener" class="btn btn-wa" style="width:100%;justify-content:center;font-size:0.92rem;padding:12px 16px">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.5A8 8 0 1 1 21 12Z"/></svg> Register on WhatsApp
+     </a>
+    </div>
+
+    <!-- Option 2: Email CV -->
+    <div style="background:var(--surface);padding:20px;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow)">
+     <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--blue);margin-bottom:6px">Option 2</span>
+     <h4 style="font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:4px">Send your CV</h4>
+     <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:14px;line-height:1.5">Select your CV file to email to <strong>venkat.muddana@gmail.com</strong></p>
+     
+     <form onsubmit="handleCvEmail(event, '{role}')" style="display:flex;flex-direction:column;gap:12px">
+      <div>
+       <label style="font-size:0.8rem;font-weight:700;display:block;margin-bottom:4px;color:var(--ink)">Your Name *</label>
+       <input type="text" required class="cv-name" placeholder="e.g. Priya Sharma" style="width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:6px;font-size:0.88rem;background:var(--paper)">
+      </div>
+      <div>
+       <label style="font-size:0.8rem;font-weight:700;display:block;margin-bottom:4px;color:var(--ink)">Attach CV (PDF, DOC, DOCX) *</label>
+       <input type="file" accept=".pdf,.doc,.docx" required class="cv-file" style="width:100%;font-size:0.82rem;color:var(--ink)">
+      </div>
+      <button type="submit" class="btn btn-amber" style="width:100%;justify-content:center;font-size:0.92rem;padding:12px 16px;margin-top:4px">
+       <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Send CV via Email
+      </button>
+     </form>
+    </div>
+   </div>
+  </div>"""
+
+    inner = f"""<section><div class="container" style="max-width:780px">
+ <div class="filter-box" style="margin-bottom:30px;background:var(--surface);padding:24px;border-radius:var(--radius-sm);border:1px solid var(--line);box-shadow:var(--shadow)">
+  <label for="experience" style="font-weight:700;display:block;margin-bottom:10px;color:var(--ink);font-size:1.05rem">Select your total IT work experience:</label>
+  <select id="experience" onchange="showJob()" style="width:100%;padding:12px 16px;border-radius:8px;border:1px solid var(--line);font-size:1rem;font-family:var(--body);color:var(--ink);background:var(--paper);cursor:pointer">
+   <option value="">-- Choose your experience level --</option>
+   <option value="mid">3 to 5 Years</option>
+   <option value="sr">5 to 9 Years</option>
+   <option value="lead">10+ Years</option>
+  </select>
+ </div>
+
+ <!-- ROLE 3: MID LEVEL -->
+ <div id="job-mid" class="job-card" style="display:none;background:var(--surface);border-top:4px solid var(--blue);padding:30px;border-radius:var(--radius-sm);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:var(--shadow);margin-top:25px">
+  <span class="critical" style="background:#fee2e2;color:#dc2626;padding:4px 12px;border-radius:20px;font-size:0.82rem;font-weight:700;display:inline-block;margin-bottom:14px">🔥 High Priority Requirement (2 Openings)</span>
+  <h2 class="job-title" style="margin-top:0;color:var(--ink);font-size:1.5rem;font-weight:800">AI Software Engineer (Mid-Level)</h2>
+  <div class="meta-info" style="font-size:0.95rem;color:var(--ink-soft);margin-bottom:20px">📍 Hyderabad (Hybrid) &nbsp;|&nbsp; 💼 3–5 Years Experience</div>
+  
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Key Responsibilities</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li>Build robust production AI APIs and backend services.</li>
+   <li>Integrate Gemini models and develop advanced AI workflows.</li>
+   <li>Construct clean RAG pipelines and design detailed prompt templates.</li>
+   <li>Build automated agent workflows and debug production AI systems.</li>
+  </ul>
+
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Required Technical Skills</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li><strong>Languages & Frameworks:</strong> Python, FastAPI, REST APIs, Git</li>
+   <li><strong>Google Cloud Ecosystem:</strong> Vertex AI, Gemini API, Cloud Run, Docker</li>
+   <li><strong>Core Competence:</strong> Prompt Engineering</li>
+  </ul>
+
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Good to Have</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li>Agent Development Kit (ADK), LangChain, LangGraph</li>
+   <li>Vector databases, PostgreSQL, BigQuery, Vertex AI Search</li>
+  </ul>
+  
+  {apply_block("AI Software Engineer (Mid-Level)")}
+ </div>
+
+ <!-- ROLE 2: SENIOR -->
+ <div id="job-sr" class="job-card" style="display:none;background:var(--surface);border-top:4px solid var(--blue);padding:30px;border-radius:var(--radius-sm);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:var(--shadow);margin-top:25px">
+  <span class="critical" style="background:#fee2e2;color:#dc2626;padding:4px 12px;border-radius:20px;font-size:0.82rem;font-weight:700;display:inline-block;margin-bottom:14px">🔥 High Priority Requirement (2 Openings)</span>
+  <h2 class="job-title" style="margin-top:0;color:var(--ink);font-size:1.5rem;font-weight:800">Senior AI Engineer (Google Cloud AI)</h2>
+  <div class="meta-info" style="font-size:0.95rem;color:var(--ink-soft);margin-bottom:20px">📍 Hyderabad (Hybrid) &nbsp;|&nbsp; 💼 5–9 Years Experience</div>
+  
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Role Summary & Responsibilities</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li>Design and develop production-grade enterprise AI applications using Google Cloud AI services and Gemini technologies.</li>
+   <li>Build sophisticated AI applications using Vertex AI and deploy smart AI agents via ADK.</li>
+   <li>Build Gemini-powered enterprise assistants and orchestrate multi-format RAG applications.</li>
+   <li>Integrate vital enterprise data sources and architect APIs for seamless internal AI services.</li>
+   <li>Implement rigorous AI evaluation frameworks, optimize complex prompts, and manage secure production deployments while collaborating heavily with core architects.</li>
+  </ul>
+
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Required Technical Skills (Must Have)</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li><strong>Google Cloud AI:</strong> Vertex AI, Vertex AI Agent Builder, Gemini API, Gemini Enterprise</li>
+   <li><strong>AI Engineering Specialized:</strong> ADK (Agent Development Kit), Prompt Engineering</li>
+   <li><strong>Core Backend Systems:</strong> Python, FastAPI, Docker, Kubernetes, REST APIs</li>
+  </ul>
+
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Good Experience In</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li><strong>Orchestration & Tools:</strong> LangChain, LangGraph, LlamaIndex, MCP (Model Context Protocol)</li>
+   <li><strong>Data Frameworks:</strong> Vector Search, Pinecone / Vertex Vector Search, BigQuery, Pub/Sub, Cloud Run</li>
+  </ul>
+
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Preferred Qualifications</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li>Google Cloud Professional Certifications</li>
+   <li>Hands-on familiarity with MLOps, AI data evaluation, and overall system Observability</li>
+  </ul>
+  
+  {apply_block("Senior AI Engineer (Google Cloud AI)")}
+ </div>
+
+ <!-- ROLE 1: LEAD -->
+ <div id="job-lead" class="job-card" style="display:none;background:var(--surface);border-top:4px solid var(--blue);padding:30px;border-radius:var(--radius-sm);border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:var(--shadow);margin-top:25px">
+  <h2 class="job-title" style="margin-top:0;color:var(--ink);font-size:1.5rem;font-weight:800">Lead AI Engineer / AI Technical Lead (Google Cloud AI)</h2>
+  <div class="meta-info" style="font-size:0.95rem;color:var(--ink-soft);margin-bottom:20px">📍 Hyderabad (Hybrid) &nbsp;|&nbsp; 💼 10–15+ Years Experience (4+ in AI/ML & GenAI)</div>
+  
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">About the Role & Essential Functions</h3>
+  <p style="margin-top:10px;line-height:1.7;color:var(--ink-soft)">This is a hands-on technical leadership role to design and deliver enterprise-scale Generative AI solutions using Google Cloud's AI ecosystem.</p>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li>Lead the overall architecture and high-scale deployment of corporate AI platforms.</li>
+   <li>Design complex multi-agent systems via Gemini Enterprise and Gemini Enterprise Agents.</li>
+   <li>Build intelligent AI assistants utilizing the Agent Development Kit (ADK) and deploy robust enterprise RAG architectures.</li>
+   <li>Construct clean MCP-based integrations with crucial production systems.</li>
+   <li>Implement dynamic AI orchestration workflows and design highly scalable Vertex AI deployments.</li>
+   <li>Fine-tune foundation models, evaluate real-world performance, and build production AI microservices.</li>
+   <li><strong>Enterprise System Integration:</strong> Connect core AI engines with backend environments like ERP, CRM, BPM, ServiceNow, Salesforce, and Pega.</li>
+   <li>Provide close mentorship to engineering teams, outline strict coding standards/governance, and coordinate directly with stakeholders.</li>
+  </ul>
+
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Deep Technical Requirements</h3>
+  
+  <h4 style="margin-top:15px;margin-bottom:5px;color:var(--ink-soft);font-size:0.95rem;font-weight:700">Google Cloud AI & Gemini Ecosystem</h4>
+  <ul style="padding-left:20px;margin-top:6px;line-height:1.7">
+   <li>Vertex AI, Vertex AI Pipelines, Vertex AI Search, Vertex AI Agent Builder, Vertex AI Extensions, Vertex AI Model Garden, Vertex AI Evaluation, Vertex AI Prompt Management, Vertex AI Vector Search</li>
+   <li>Gemini Enterprise, Gemini Enterprise Agents, Gemini API, Gemini 2.x models</li>
+   <li>Prompt Engineering, Function Calling, Structured Outputs, Tool Calling</li>
+  </ul>
+
+  <h4 style="margin-top:15px;margin-bottom:5px;color:var(--ink-soft);font-size:0.95rem;font-weight:700">Agent Development & AI Architecture</h4>
+  <ul style="padding-left:20px;margin-top:6px;line-height:1.7">
+   <li>Agent Development Kit (ADK), Multi-Agent Systems, Agent orchestration, AI Planning, Memory management, Context management</li>
+   <li>RAG, Hybrid Search, Vector Databases, Knowledge Graphs, Embeddings, Semantic Search</li>
+  </ul>
+
+  <h4 style="margin-top:15px;margin-bottom:5px;color:var(--ink-soft);font-size:0.95rem;font-weight:700">Google Cloud Platform (GCP) Core</h4>
+  <ul style="padding-left:20px;margin-top:6px;line-height:1.7">
+   <li>Cloud Run, GKE (Google Kubernetes Engine), Cloud Functions, Pub/Sub, BigQuery, Cloud Storage, Secret Manager, IAM</li>
+  </ul>
+
+  <h4 style="margin-top:15px;margin-bottom:5px;color:var(--ink-soft);font-size:0.95rem;font-weight:700">Programming, Frameworks & DevOps</h4>
+  <ul style="padding-left:20px;margin-top:6px;line-height:1.7">
+   <li>Python, FastAPI, Java, Go (preferred), REST APIs, gRPC</li>
+   <li>LangChain, LangGraph, LlamaIndex, MCP (Model Context Protocol)</li>
+   <li>Docker, Kubernetes, Terraform, GitHub Actions / Cloud Build</li>
+  </ul>
+
+  <h3 class="section-label" style="color:var(--ink);font-size:1.1rem;margin-top:25px;border-bottom:1px solid var(--line);padding-bottom:6px">Nice to Have</h3>
+  <ul style="padding-left:20px;margin-top:10px;line-height:1.7">
+   <li>Google Professional Machine Learning Engineer or Professional Cloud Architect certifications</li>
+   <li>Proven background leading agile groups of 8–15 software engineers</li>
+   <li>Strong foundation in enterprise AI governance</li>
+  </ul>
+  
+  {apply_block("Lead AI Engineer (Google Cloud AI)")}
+ </div>
+</div></section>
+<script>
+function showJob() {{
+  document.querySelectorAll('.job-card').forEach(function(card) {{ card.style.display = 'none'; }});
+  var exp = document.getElementById('experience').value;
+  if(exp) {{
+    document.getElementById('job-' + exp).style.display = 'block';
+  }}
+}}
+
+function handleCvEmail(e, role) {{
+  e.preventDefault();
+  var form = e.target;
+  var nameInput = form.querySelector('.cv-name');
+  var fileInput = form.querySelector('.cv-file');
+  var candidateName = nameInput ? nameInput.value.trim() : 'Candidate';
+  var fileName = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : '';
+  
+  var subject = encodeURIComponent("Aadhya Fast Track Application: " + role + " - " + candidateName);
+  var bodyText = "Hi Venkat,\\n\\nI am applying for the " + role + " position via Aadhya Living Fast Track.\\n\\nApplicant Name: " + candidateName + "\\n" + (fileName ? "CV Attachment File: " + fileName + "\\n\\n" : "") + "Please find my attached CV.\\n\\nBest regards,\\n" + candidateName;
+  var body = encodeURIComponent(bodyText);
+  
+  alert("Opening your email client to send your CV to venkat.muddana@gmail.com.\\n\\nPlease make sure your CV file (" + (fileName || "PDF/DOC") + ") is attached before sending!");
+  
+  window.location.href = "mailto:venkat.muddana@gmail.com?subject=" + subject + "&body=" + body;
+}}
+</script>"""
+    return simple("Exclusive Tech Opportunities | Aadhya Living",
+                  "Direct internal AI engineering opportunities via your Hostel Network for Aadhya Living residents.",
+                  "careers.html",
+                  "Exclusive Career Fast-Track",
+                  "Direct internal opportunities via your Hostel Network",
+                  inner)
+
 def build_404():
     inner = f"""<section><div class="container center">
  <h2>That page moved — your new home didn't.</h2>
@@ -589,7 +800,7 @@ def build_404():
 
 # ---------------------------------------------------------------- infra files
 def build_sitemap():
-    pages = ["", "safety.html","food.html","about.html","contact.html","reviews.html"] + [p["slug"]+".html" for p in PROPERTIES]
+    pages = ["", "safety.html","food.html","about.html","contact.html","reviews.html","careers.html","GoogleAI_Job_Roles.html"] + [p["slug"]+".html" for p in PROPERTIES]
     urls = "".join(f"<url><loc>{SITE}/{p}</loc></url>" for p in pages)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>'
 
@@ -620,12 +831,14 @@ ROBOTS = f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n"
 
 # ---------------------------------------------------------------- run
 OUT = os.path.dirname(os.path.abspath(__file__))
+careers_content = build_careers()
 pages = {"index.html": build_home(), "safety.html": build_safety(), "food.html": build_food(),
          "about.html": build_about(), "contact.html": build_contact(), "reviews.html": build_reviews(),
+         "careers.html": careers_content, "GoogleAI_Job_Roles.html": careers_content,
          "404.html": build_404(), "sitemap.xml": build_sitemap(), ".htaccess": HTACCESS, "robots.txt": ROBOTS}
 for p in PROPERTIES:
     pages[p["slug"] + ".html"] = build_property(p)
 for name, content in pages.items():
-    with open(os.path.join(OUT, name), "w") as f:
+    with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
         f.write(content)
 print(f"Built {len(pages)} files.")
