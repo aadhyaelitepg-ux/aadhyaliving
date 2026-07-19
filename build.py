@@ -6,6 +6,7 @@ import html, os
 
 SITE = "https://aadhyaliving.in"
 VER = "20260704d"
+GA_ID = ""  # Set your Google Analytics Measurement ID here (e.g. "G-XXXXXXXXXX") to enable tracking across all pages
 MAPS_ALL = "https://www.google.com/maps/search/Aadhya+Living+PG+Hyderabad"  # bump this string whenever you change CSS/JS to force browsers to reload
 PH_MEN, PH_WOMEN, PH_COLIVE = "919888877789", "918345888999", "919888878899"
 
@@ -188,6 +189,13 @@ def action_bar(call, wa, maps):
  <a class="ab-call" href="tel:+{call}">{ic('phone','')}Call</a>
  <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat','')}WhatsApp</a>
  <a class="ab-dir" href="{maps}" target="_blank" rel="noopener">{ic('pin','')}Directions</a>
+</div>"""
+
+def action_bar_simple(call, wa):
+    return f"""<div class="action-bar">
+ <a class="ab-home" href="index.html">{ic('home','')}Home</a>
+ <a class="ab-call" href="tel:+{call}">{ic('phone','')}Call</a>
+ <a class="ab-wa" href="https://wa.me/{wa}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat','')}WhatsApp</a>
 </div>"""
 
 def card(p):
@@ -464,10 +472,19 @@ def build_property(p):
 
 # ---------------------------------------------------------------- simple pages
 def simple(title, desc, path, hero_h1, hero_p, inner):
+    page_label = path.replace('.html','').replace('-',' ').title()
+    if path == "careers.html" or path == "GoogleAI_Job_Roles.html":
+        page_label = "Careers"
+    crumb = f'<div class="crumbs" style="margin-bottom:14px;color:rgba(255,255,255,.7);font-size:.9rem"><a href="index.html" style="color:var(--amber);font-weight:600">← Home</a> / {page_label}</div>'
+    home_band = f"""<section style="padding-top:0"><div class="container"><div class="band">
+ <div><h2>Looking for a room along the IT corridor?</h2><p>Explore all 11 Aadhya homes in Gachibowli, Kondapur, Hitec City & Khajaguda — with fresh food, safety, and rooms for every budget.</p></div>
+ <div class="btn-row"><a class="btn btn-amber" href="index.html#locations">{ic("home")} Explore All 11 Locations</a></div>
+</div></div></section>"""
     body = f"""{nav(path)}
-<div class="page-hero"><div class="container"><h1>{hero_h1}</h1><p>{hero_p}</p></div></div>
+<div class="page-hero"><div class="container">{crumb}<h1>{hero_h1}</h1><p>{hero_p}</p></div></div>
 {inner}
-{action_bar(PH_WOMEN, PH_WOMEN, MAPS_ALL)}
+{home_band}
+{action_bar_simple(PH_WOMEN, PH_WOMEN)}
 {footer()}"""
     return head(title, desc, path) + body
 

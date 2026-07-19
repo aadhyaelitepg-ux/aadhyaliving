@@ -235,10 +235,10 @@ section{padding:56px 0}
 /* ---------- sticky mobile bar ---------- */
 .action-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}
 .action-bar a{background:var(--surface);padding:11px 6px;text-align:center;font-weight:700;font-size:.78rem;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:3px}
-.action-bar a svg{width:20px;height:20px;stroke-width:1.8;fill:none}
-.action-bar .ab-wa{background:#1eb85a;color:#fff}.ab-wa svg{stroke:#fff}
+.action-bar .ab-home{background:var(--surface);color:var(--ink)}.ab-home svg{stroke:var(--ink)}
 .action-bar .ab-call{background:var(--blue);color:#fff}.ab-call svg{stroke:#fff}
 .action-bar .ab-dir svg{stroke:var(--ink)}
+.action-bar .ab-wa{background:#1eb85a;color:#fff}.ab-wa svg{stroke:#fff}
 @media(min-width:900px){.action-bar{display:none}}
 body.has-bar{padding-bottom:62px}
 @media(min-width:900px){body.has-bar{padding-bottom:0}}
