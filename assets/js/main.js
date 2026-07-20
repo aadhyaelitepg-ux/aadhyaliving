@@ -40,7 +40,7 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var d = new FormData(form);
-      var wa = form.dataset.wa || "918345888999";
+      var wa = form.dataset.wa || "919888877789";
       var msg =
         "Hi Aadhya Living! I'm looking for a PG.\n" +
         "Name: " + (d.get("name") || "-") + "\n" +

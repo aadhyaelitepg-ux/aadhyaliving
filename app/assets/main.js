@@ -184,7 +184,7 @@ var enq = $("#enquiry-form");
 if (enq) {
   enq.addEventListener("submit", function (e) {
     e.preventDefault();
-    var wa = enq.dataset.wa || "918345888999";
+    var wa = enq.dataset.wa || "919888877789";
     var fd = new FormData(enq), lines = ["Hi Aadhya Living! New enquiry:"];
     if (fd.get("name")) lines.push("Name: " + fd.get("name"));
     if (fd.get("type")) lines.push("Looking for: " + fd.get("type"));
