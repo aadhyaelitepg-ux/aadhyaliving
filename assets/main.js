@@ -208,7 +208,9 @@ function showJob() {
   }
 }
 function handleCvEmail(role) {
-  var url = "https://wa.me/917013939369?text=" + encodeURIComponent(
-    "Hi Aadhya Living! I'd like to share my CV for the " + role + " position. Sending it here in the next message.");
-  window.open(url, "_blank");
+  // CVs go to email — the WhatsApp API number can't receive documents.
+  var subject = "Aadhya Fast Track Application: " + role;
+  var body = "Hi Venkat,\n\nI am applying for the " + role + " position via Aadhya Living Fast Track.\n\nApplicant Name: \nPhone: \n\nPlease find my CV attached.\n";
+  alert("Opening your email app — please attach your CV (PDF/DOC) before sending!");
+  window.location.href = "mailto:venkat.muddana@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
 }

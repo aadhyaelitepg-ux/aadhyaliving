@@ -9,6 +9,10 @@ VER = "20260704d"
 GA_ID = ""  # Set your Google Analytics Measurement ID here (e.g. "G-XXXXXXXXXX") to enable tracking across all pages
 MAPS_ALL = "https://www.google.com/maps/search/Aadhya+Living+PG+Hyderabad"  # bump this string whenever you change CSS/JS to force browsers to reload
 PH_MEN, PH_WOMEN, PH_COLIVE = "919888877789", "918345888999", "919888878899"
+# Meta WhatsApp Business API number (Aadhya TMS). ALL wa.me links use this so
+# every website WhatsApp enquiry hits the TMS webhook and appears in the Leads
+# tab. tel: links keep the staff numbers above — calls can't create leads.
+PH_WA = "917013939369"
 
 def utm(slug):  # tag for the Google Business Profile website button
     return f"?utm_source=gbp&utm_medium=organic&utm_campaign=listing&utm_content={slug}"
@@ -165,7 +169,7 @@ def footer():
    <p style="font-size:.92rem">Professionally managed PGs & co-living across Hyderabad's IT corridor — Gachibowli, Kondapur, Hitec City & Khajaguda. A home for every budget.</p>
    <div class="socials">
     <a href="https://www.instagram.com/" aria-label="Instagram">{ic('insta','')}</a>
-    <a href="https://wa.me/{PH_WOMEN}" aria-label="WhatsApp">{ic('chat','')}</a>
+    <a href="https://wa.me/{PH_WA}" aria-label="WhatsApp">{ic('chat','')}</a>
    </div>
   </div>
   <div><h4>Locations</h4>{loc}</div>
@@ -180,7 +184,7 @@ def footer():
  </div>
  <div class="container foot-note"><span>© 2026 Aadhya Living, Hyderabad. All rights reserved.</span><span>Women's · Men's · Co-Living PGs</span></div>
 </footer>
-<a class="wa-float" href="https://wa.me/{PH_WOMEN}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG." aria-label="Chat on WhatsApp">{ic('chat','')}</a>
+<a class="wa-float" href="https://wa.me/{PH_WA}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG." aria-label="Chat on WhatsApp">{ic('chat','')}</a>
 <script src="assets/js/main.js?v={VER}"></script>
 </body></html>"""
 
@@ -214,7 +218,7 @@ def card(p):
   <p class="card-near">{ic('pin','')}Near {near}</p>
   <div class="card-actions">
    <a class="btn btn-blue btn-sm" href="{p['slug']}.html">View</a>
-   <a class="btn btn-wa btn-sm" href="https://wa.me/{phone}?text=Hi!%20Enquiring%20about%20{p['name'].replace(' ','%20')}">WhatsApp</a>
+   <a class="btn btn-wa btn-sm" href="https://wa.me/{PH_WA}?text=Hi!%20Enquiring%20about%20{p['name'].replace(' ','%20')}">WhatsApp</a>
    <a class="btn btn-ghost btn-sm" href="tel:+{phone}">Call</a>
   </div>
  </div>
@@ -290,7 +294,7 @@ def build_home():
    <h1>A home on every stop of your <em>commute.</em></h1>
    <p>11 professionally managed PGs strung along Hyderabad's IT corridor. Wherever you work, there's an Aadhya minutes away — with fresh food, real safety, and a room for every budget.</p>
    <div class="hero-actions">
-    <a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat')} WhatsApp us</a>
+    <a class="btn btn-amber" href="https://wa.me/{PH_WA}?text=Hi%20Aadhya%20Living!%20I%27m%20looking%20for%20a%20PG.">{ic('chat')} WhatsApp us</a>
     <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="#locations">Explore the map {ic('arrow')}</a>
    </div>
    <div class="hero-metrics">
@@ -336,7 +340,7 @@ def build_home():
   <div><h2>Every budget has a home here.</h2>
    <p>We don't publish one price because we don't have one product — economical sharing, comfortable doubles, premium singles. Tell us what you can spend; we'll show you what it gets.</p></div>
   <div class="btn-row">
-   <a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20My%20budget%20is%20____%20—%20what%20rooms%20do%20you%20have%3F">{ic("chat")} Share your budget</a>
+   <a class="btn btn-amber" href="https://wa.me/{PH_WA}?text=Hi!%20My%20budget%20is%20____%20—%20what%20rooms%20do%20you%20have%3F">{ic("chat")} Share your budget</a>
    <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.35)" href="contact.html">Book a visit</a>
   </div>
  </div></div>
@@ -376,7 +380,7 @@ def build_home():
   <div class="faq">{faq_html}</div>
  </div>
 </section>
-{action_bar(PH_WOMEN, PH_WOMEN, MAPS_ALL)}
+{action_bar(PH_WOMEN, PH_WA, MAPS_ALL)}
 {footer()}"""
     title = "Aadhya Living | Women's, Men's & Co-Living PG in Gachibowli, Kondapur, Hitec City & Khajaguda, Hyderabad"
     desc = "11 professionally managed PGs across Hyderabad's IT corridor. All meals, CCTV security, housekeeping included — rooms for every budget. WhatsApp us to book a visit."
@@ -385,7 +389,7 @@ def build_home():
 # ---------------------------------------------------------------- property page
 def build_property(p):
     label, badge, phone = TYPE_META[p["type"]]
-    wa = phone
+    wa = PH_WA
     if p.get("photos"):
         gal = "".join(f"""<a href="{b}.jpg" target="_blank" rel="noopener"><picture>
 <source srcset="{b}.webp" type="image/webp"><img src="{b}.jpg" alt="{html.escape(p['name'])} — photo {i+1}" loading="lazy"></picture></a>""" for i,b in enumerate(KJ))
@@ -488,7 +492,7 @@ def simple(title, desc, path, hero_h1, hero_p, inner):
 <div class="page-hero"><div class="container">{crumb}<h1>{hero_h1}</h1><p>{hero_p}</p></div></div>
 {inner}
 {home_band}
-{action_bar_simple(PH_WOMEN, PH_WOMEN)}
+{action_bar_simple(PH_WOMEN, PH_WA)}
 {footer()}"""
     return head(title, desc, path) + body
 
@@ -511,7 +515,7 @@ def build_safety():
 </div></section>
 <section style="padding-top:0"><div class="container"><div class="band">
  <div><h2>Parents: visit us first.</h2><p>Before your daughter or son moves in, come see the building, meet the caretaker, taste the food. We'll arrange a visit the same day in most cases.</p></div>
- <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20I%27m%20a%20parent%20and%20would%20like%20to%20visit%20a%20property.">{ic("chat")} Arrange a parent visit</a></div>
+ <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WA}?text=Hi!%20I%27m%20a%20parent%20and%20would%20like%20to%20visit%20a%20property.">{ic("chat")} Arrange a parent visit</a></div>
 </div></div></section>"""
     return simple("Safety at Aadhya Living | CCTV, Secure Entry & On-site Caretakers","How Aadhya Living keeps residents safe: 24×7 CCTV, controlled entry, on-site caretakers and responsive management at every PG in Hyderabad.","safety.html","Safety isn't a feature here.","It's the reason parents choose us — and residents stay. Here's exactly what we do at every property.",inner)
 
@@ -530,7 +534,7 @@ def build_food():
  <p class="lead mt-2">All three meals are included at every property. Menus vary a little by location and season — this is a representative week. Special meals on Sundays and festivals.</p>
  <div class="menu-scroll"><table class="menu-table"><thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead><tbody>{rows}</tbody></table></div>
  <p class="mt-3" style="color:var(--ink-soft)">Dietary preference or allergy? Tell us before you move in — we accommodate where we can.</p>
- <a class="btn btn-wa mt-2" href="https://wa.me/{PH_WOMEN}?text=Hi!%20Question%20about%20the%20food%20menu%20—">{ic("chat")} Ask about the menu</a>
+ <a class="btn btn-wa mt-2" href="https://wa.me/{PH_WA}?text=Hi!%20Question%20about%20the%20food%20menu%20—">{ic("chat")} Ask about the menu</a>
 </div></section>"""
     return simple("Food at Aadhya Living | All Meals Included at Every PG","Breakfast, lunch and dinner cooked fresh in-house daily at every Aadhya Living PG in Hyderabad. See a sample weekly menu.","food.html","Food you'll actually look forward to.","Three fresh meals a day, cooked in-house at every property — included, always.",inner)
 
@@ -547,7 +551,7 @@ def build_about():
 </div></section>
 <section style="padding-top:0"><div class="container"><div class="band">
  <div><h2>Come see for yourself.</h2><p>The best way to know a PG is to walk through it. Message us — we'll set up a visit today.</p></div>
- <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WOMEN}?text=Hi!%20I%27d%20like%20to%20visit%20a%20property.">{ic("chat")} Book a visit</a></div>
+ <div class="btn-row"><a class="btn btn-amber" href="https://wa.me/{PH_WA}?text=Hi!%20I%27d%20like%20to%20visit%20a%20property.">{ic("chat")} Book a visit</a></div>
 </div></div></section>"""
     return simple("About Aadhya Living | Hyderabad's Trusted PG & Co-Living Brand","Aadhya Living runs 11 women's, men's and co-living PGs across Hyderabad's IT corridor — built on food, safety and management standards residents recommend.","about.html","A brand built by word of mouth.","11 properties. Three neighbourhoods' worth of residents who found us the same way: a friend said, 'stay at Aadhya.'",inner)
 
@@ -556,7 +560,7 @@ def build_contact():
 <h3>{html.escape(p['name'])}</h3><p class="card-near">{p['area']}</p>
 <div class="card-actions">
 <a class="btn btn-blue btn-sm" href="tel:+{TYPE_META[p['type']][2]}">{ic("phone")} Call</a>
-<a class="btn btn-wa btn-sm" href="https://wa.me/{TYPE_META[p['type']][2]}">{ic("chat")} WhatsApp</a>
+<a class="btn btn-wa btn-sm" href="https://wa.me/{PH_WA}">{ic("chat")} WhatsApp</a>
 <a class="btn btn-ghost btn-sm" href="{p['maps']}" target="_blank" rel="noopener">{ic("pin")} Map</a>
 </div></div></article>""" for p in PROPERTIES)
     inner = f"""<section><div class="container">
@@ -569,7 +573,7 @@ def build_contact():
     <li>{ic("phone","icon")}<span><strong>Co-Living (Aadhya Elite):</strong>&nbsp;<a href="tel:+{PH_COLIVE}">{disp(PH_COLIVE)}</a></span></li>
    </ul>
    <h2 style="margin-top:44px">Or start on WhatsApp</h2>
-   <form class="enq mt-2" id="enquiry-form" data-wa="{PH_WOMEN}">
+   <form class="enq mt-2" id="enquiry-form" data-wa="{PH_WA}">
     <label for="c-name">Your name</label><input id="c-name" name="name" required placeholder="e.g. Priya">
     <label for="c-type">Looking for</label>
     <select id="c-type" name="type"><option>Women's PG</option><option>Men's PG</option><option>Co-Living</option></select>
@@ -602,8 +606,8 @@ def build_reviews():
 
 def build_careers():
     def apply_block(role):
-        wa_text = f"Hi Venkat! I'm registering my interest for the {role} position."
-        wa_url = f"https://wa.me/916304392325?text={html.escape(wa_text).replace(' ', '%20')}"
+        wa_text = f"Hi! I'm an Aadhya resident registering my interest for the {role} position."
+        wa_url = f"https://wa.me/{PH_WA}?text={html.escape(wa_text).replace(' ', '%20')}"
         return f"""
   <div class="apply-box" style="margin-top:32px;padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm)">
    <h3 style="font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:4px">Fast Track Application Options</h3>
@@ -868,9 +872,12 @@ def make_redirect_html(target_url):
 # ---------------------------------------------------------------- run
 OUT = os.path.dirname(os.path.abspath(__file__))
 careers_content = build_careers()
+# careers.html is HAND-MAINTAINED (Benefits & Career Opportunities page, edited
+# directly in HTML) — the generator must NOT overwrite it. Only the
+# GoogleAI_Job_Roles.html variant is still generated from build_careers().
 pages = {"index.html": build_home(), "safety.html": build_safety(), "food.html": build_food(),
          "about.html": build_about(), "contact.html": build_contact(), "reviews.html": build_reviews(),
-         "careers.html": careers_content, "GoogleAI_Job_Roles.html": careers_content,
+         "GoogleAI_Job_Roles.html": careers_content,
          "404.html": build_404(), "sitemap.xml": build_sitemap(), ".htaccess": HTACCESS, "robots.txt": ROBOTS}
 
 # Add HTML redirects for legacy URLs (works on Railway, Vercel, Netlify & GitHub Pages)
