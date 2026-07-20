@@ -208,7 +208,7 @@ function showJob() {
   }
 }
 function handleCvEmail(role) {
-  var url = "https://wa.me/916304392325?text=" + encodeURIComponent(
-    "Hi Venkat! I'd like to share my CV for the " + role + " position. Sending it here in the next message.");
+  var url = "https://wa.me/917013939369?text=" + encodeURIComponent(
+    "Hi Aadhya Living! I'd like to share my CV for the " + role + " position. Sending it here in the next message.");
   window.open(url, "_blank");
 }
