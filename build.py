@@ -8,7 +8,7 @@ SITE = "https://aadhyaliving.in"
 VER = "20260704d"
 GA_ID = ""  # Set your Google Analytics Measurement ID here (e.g. "G-XXXXXXXXXX") to enable tracking across all pages
 MAPS_ALL = "https://www.google.com/maps/search/Aadhya+Living+PG+Hyderabad"  # bump this string whenever you change CSS/JS to force browsers to reload
-PH_MEN, PH_WOMEN, PH_COLIVE = "919888877789", "918345888999", "919888878899"
+PH_MEN, PH_WOMEN, PH_COLIVE = "917013939369", "918345888999", "919888878899"
 
 def utm(slug):  # tag for the Google Business Profile website button
     return f"?utm_source=gbp&utm_medium=organic&utm_campaign=listing&utm_content={slug}"
@@ -92,7 +92,7 @@ PROPERTIES = [
       sister="womens-pg-khajaguda",
       blurb="Directly opposite our flagship Khajaguda women's building, the Prashant Hills property offers the same management, food and safety standards — double the capacity in one of Hyderabad's fastest-growing neighbourhoods."),
  dict(slug="mens-pg-khajaguda", name="Aadhya Men's PG – Khajaguda", short="Men's PG · Khajaguda",
-      type="men", area="Khajaguda", lat=17.419183, lng=78.379562,
+      type="men", phone=PH_WOMEN, area="Khajaguda", lat=17.419183, lng=78.379562,
       maps="https://maps.app.goo.gl/U742wPPCC1jnH7Kh9", addr='Road no 4, Plot no 284, Prashant Hills, Gachibowli, Rai Durg, Hyderabad, Telangana 500032', pin='500032', kw=['mens pg in khajaguda', 'boys hostel in khajaguda', 'pg near financial district'], near=LANDMARKS["khajaguda"],
       blurb="A men's PG in Khajaguda built for Financial District commuters — minutes from Wells Fargo, ICICI and the Nanakramguda tech corridor, with all meals and housekeeping included."),
  dict(slug="ss-grand-womens-pg-gachibowli", name="SS Grand Women's PG – by Aadhya Living", short="Women's PG · Gachibowli East",
@@ -201,6 +201,7 @@ def action_bar_simple(call, wa):
 
 def card(p):
     label, badge, phone = TYPE_META[p["type"]]
+    phone = p.get("phone", phone)
     if p.get("photos"):
         media = f'<img src="{KJ[0]}-sm.webp" alt="{html.escape(p["name"])} building" loading="lazy" width="640" height="427">'
     else:
@@ -385,6 +386,7 @@ def build_home():
 # ---------------------------------------------------------------- property page
 def build_property(p):
     label, badge, phone = TYPE_META[p["type"]]
+    phone = p.get("phone", phone)
     wa = phone
     if p.get("photos"):
         gal = "".join(f"""<a href="{b}.jpg" target="_blank" rel="noopener"><picture>
@@ -555,8 +557,8 @@ def build_contact():
     rows = "".join(f"""<article class="card"><div class="card-body">
 <h3>{html.escape(p['name'])}</h3><p class="card-near">{p['area']}</p>
 <div class="card-actions">
-<a class="btn btn-blue btn-sm" href="tel:+{TYPE_META[p['type']][2]}">{ic("phone")} Call</a>
-<a class="btn btn-wa btn-sm" href="https://wa.me/{TYPE_META[p['type']][2]}">{ic("chat")} WhatsApp</a>
+<a class="btn btn-blue btn-sm" href="tel:+{p.get('phone', TYPE_META[p['type']][2])}">{ic("phone")} Call</a>
+<a class="btn btn-wa btn-sm" href="https://wa.me/{p.get('phone', TYPE_META[p['type']][2])}">{ic("chat")} WhatsApp</a>
 <a class="btn btn-ghost btn-sm" href="{p['maps']}" target="_blank" rel="noopener">{ic("pin")} Map</a>
 </div></div></article>""" for p in PROPERTIES)
     inner = f"""<section><div class="container">
