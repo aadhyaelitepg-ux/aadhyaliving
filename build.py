@@ -8,7 +8,7 @@ SITE = "https://aadhyaliving.in"
 VER = "20260704d"
 GA_ID = ""  # Set your Google Analytics Measurement ID here (e.g. "G-XXXXXXXXXX") to enable tracking across all pages
 MAPS_ALL = "https://www.google.com/maps/search/Aadhya+Living+PG+Hyderabad"  # bump this string whenever you change CSS/JS to force browsers to reload
-PH_MEN, PH_WOMEN, PH_COLIVE = "917013939369", "917013939369", "917013939369"
+PH_MEN, PH_WOMEN, PH_COLIVE = "918345888999", "918345888999", "918345888999"
 
 def utm(slug):  # tag for the Google Business Profile website button
     return f"?utm_source=gbp&utm_medium=organic&utm_campaign=listing&utm_content={slug}"
@@ -585,7 +585,7 @@ def build_contact():
   <div><h2>Every property, one tap away</h2><div class="prop-grid mt-2" style="grid-template-columns:1fr">{rows}</div></div>
  </div>
 </div></section>"""
-    return simple("Contact Aadhya Living | Call or WhatsApp Any Property","Contact Aadhya Living PGs in Hyderabad. Men's PGs: +91 70139 39369 · Women's PGs: +91 70139 39369 · Co-Living: +91 70139 39369. WhatsApp for same-day visits.","contact.html","Talk to a human, today.","Call, WhatsApp, or send your details — we usually reply within minutes during the day.",inner)
+    return simple("Contact Aadhya Living | Call or WhatsApp Any Property","Contact Aadhya Living PGs in Hyderabad. Men's PGs: +91 8345 888 999 · Women's PGs: +91 8345 888 999 · Co-Living: +91 8345 888 999. WhatsApp for same-day visits.","contact.html","Talk to a human, today.","Call, WhatsApp, or send your details — we usually reply within minutes during the day.",inner)
 
 def build_reviews():
     blocks = "".join(f"""<article class="card"><div class="card-body">
@@ -605,7 +605,7 @@ def build_reviews():
 def build_careers():
     def apply_block(role):
         wa_text = f"Hi Venkat! I'm registering my interest for the {role} position."
-        wa_url = f"https://wa.me/916304392325?text={html.escape(wa_text).replace(' ', '%20')}"
+        wa_url = f"https://wa.me/918345888999?text={html.escape(wa_text).replace(' ', '%20')}"
         return f"""
   <div class="apply-box" style="margin-top:32px;padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm)">
    <h3 style="font-size:1.15rem;font-weight:800;color:var(--ink);margin-bottom:4px">Fast Track Application Options</h3>

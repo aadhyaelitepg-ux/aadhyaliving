@@ -184,7 +184,7 @@ var enq = $("#enquiry-form");
 if (enq) {
   enq.addEventListener("submit", function (e) {
     e.preventDefault();
-    var wa = enq.dataset.wa || "917013939369";
+    var wa = enq.dataset.wa || "918345888999";
     var fd = new FormData(enq), lines = ["Hi Aadhya Living! New enquiry:"];
     if (fd.get("name")) lines.push("Name: " + fd.get("name"));
     if (fd.get("type")) lines.push("Looking for: " + fd.get("type"));
@@ -208,7 +208,7 @@ function showJob() {
   }
 }
 function handleCvEmail(role) {
-  var url = "https://wa.me/916304392325?text=" + encodeURIComponent(
+  var url = "https://wa.me/918345888999?text=" + encodeURIComponent(
     "Hi Venkat! I'd like to share my CV for the " + role + " position. Sending it here in the next message.");
   window.open(url, "_blank");
 }
